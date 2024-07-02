@@ -1,7 +1,6 @@
 import {
   AcademicCapIcon,
   ArrowDownTrayIcon,
-  BuildingOffice2Icon,
   CalendarIcon,
   FlagIcon,
   MapIcon,
@@ -12,7 +11,6 @@ import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
@@ -25,7 +23,7 @@ import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
 import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
 import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import profilepic from '../images/profilepic.jpg';
+import profilepic from '../images/profile.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
   About,
@@ -44,8 +42,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'Shivang sinha',
+  description: "This is about me.",
 };
 
 /**
@@ -69,24 +67,23 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Tim Baker.`,
+  name: `I'm Shivang Sinha`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
+        I'm a Germany based <strong className="text-stone-100">Data Scientist / Full Stack Software Engineer</strong>, currently Pursuing Masters in Natural Language Processing
+        at <strong className="text-stone-100">Trier University.</strong> 
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
+        In my free time time, you can catch me playing <strong className="text-stone-100">Badminton or Cricket</strong>,
+        listening to <strong className="text-stone-100">music</strong>, or exploring this beautiful city{' '}
+        <strong className="text-stone-100">Koblenz</strong>.
       </p>
     </>
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
+      href: '/asset/resume.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -104,16 +101,17 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `A passionate and detail-oriented IT professional with 4 years of expertise in Natural Language Processing (NLP)
+and full-stack development. Currently deepening my knowledge with a Master's in NLP, I am enthusiastic about
+securing working opportunity to apply my technical skills in Data Science and Artificial Intelligence within a
+dynamic and forward-thinking environment.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Location', text: 'Koblenz, Germany', Icon: MapIcon},
+    {label: 'Age', text: '26', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Indian', Icon: FlagIcon},
+    {label: 'Interests', text: 'AI, Badminton and Cricket', Icon: SparklesIcon},
+    {label: 'Study', text: 'University of Trier', Icon: AcademicCapIcon},
+    // {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -196,7 +194,7 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project title 1',
+    title: 'Coming soon',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage1,
@@ -268,10 +266,16 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'April 2024 - current',
+    location: 'Trier, Germany',
+    title: 'Masters in Natural Language Processing',
+    content: <p>I am gaining a solid foundation in NLP concepts and advanced machine learning techniques. I am acquiring hands-on experience with Python and deep learning frameworks like TensorFlow and PyTorch, working on projects in text classification, sentiment analysis, and conversational AI. My studies are enhancing my research skills and my ability to critically analyze and implement state-of-the-art NLP models, preparing me to tackle complex language processing challenges in real-world applications.
+
+
+
+
+
+    </p>,
   },
   {
     date: 'March 2003',
@@ -336,27 +340,27 @@ export const testimonial: TestimonialSection = {
 
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
+  description: 'You can reach out to me here!!',
   items: [
     {
       type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
+      text: 'shivangsinha2@gmail.com',
+      href: 'mailto:shivangsinha2@gmail.com',
     },
     {
       type: ContactType.Location,
-      text: 'Victoria BC, Canada',
-      href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
+      text: 'Koblenz, Germany',
+      href: 'https://maps.app.goo.gl/WSg46QLjcow4yzuY7',
     },
     {
       type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
+      text: '@shivang.sinha',
+      href: 'https://www.instagram.com/shivang.sinha',
     },
     {
       type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
+      text: 'Shivang Sinha',
+      href: 'https://github.com/shivang-7135',
     },
   ],
 };
@@ -365,9 +369,8 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/tbakerx'},
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/timbakerx/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/'},
-  {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/shivang-7135'},
+  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/shivang-sinha-92755012b/'},
+  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/shivang.sinha'},
 ];
