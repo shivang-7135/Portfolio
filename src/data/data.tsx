@@ -226,70 +226,81 @@ Keras, PyTorch, Express, LangChain, Llama-Index`,
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Coming soon',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Chatbot',
+    description: 'chatbot having multiple model',
+    url: 'https://chatbot-phi-sandy.vercel.app/',
     image: porfolioImage1,
+    disable: false,
   },
   {
     title: 'Project title 2',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage2,
+    disable: false,
   },
   {
     title: 'Project title 3',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage3,
+    disable: false,
   },
   {
     title: 'Project title 4',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage4,
+    disable: false,
   },
   {
     title: 'Project title 5',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage5,
+    disable: false,
   },
   {
     title: 'Project title 6',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage6,
+    disable: false,
   },
   {
     title: 'Project title 7',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage7,
+    disable: false,
   },
   {
     title: 'Project title 8',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage8,
+    disable: false,
   },
   {
     title: 'Project title 9',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage9,
+    disable: false,
   },
   {
     title: 'Project title 10',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage10,
+    disable: false,
   },
   {
     title: 'Project title 11',
     description: 'Give a short description of your project here.',
     url: 'https://reactresume.com',
     image: porfolioImage11,
+    disable: false,
   },
 ];
 
@@ -358,7 +369,7 @@ export const testimonial: TestimonialSection = {
     },
     {
       name: 'Pooja Parakh',
-      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
+      text: `Shivang is a highly skilled and dedicated IT professional. His work on deploying NLP models into production at Barclays demonstrated his deep technical knowledge and practical experience. Shivang's strong work ethic, attention to detail, and ability to work efficiently in a team make him a remarkable asset in any project or organization`,
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
     },
     {
