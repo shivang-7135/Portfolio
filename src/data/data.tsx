@@ -38,6 +38,7 @@ import {
   TimelineItem,
 } from './dataDef';
 
+
 /**
  * Page meta data
  */
@@ -127,66 +128,97 @@ export const skills: SkillGroup[] = [
         level: 10,
       },
       {
-        name: 'French',
-        level: 4,
-      },
+        name: 'German',
+        level: 2,
+      }
+    ],
+  },
+  {
+    name: 'Programming Languages',
+    skills: [
       {
-        name: 'Spanish',
-        level: 3,
+        name: 'C++, Java, Python',
+        level: 8,
       },
+     
     ],
   },
   {
     name: 'Frontend development',
     skills: [
       {
-        name: 'React',
+        name: 'React, Angular , Typescript',
         level: 9,
       },
       {
-        name: 'Typescript',
-        level: 7,
-      },
-      {
-        name: 'GraphQL',
-        level: 6,
-      },
+        name: 'HTML 5, CSS',
+        level: 8,
+      }
     ],
   },
   {
     name: 'Backend development',
     skills: [
       {
-        name: 'Node.js',
+        name: 'Javascript- Node.js',
+        level: 9,
+      },
+      {
+        name: 'Python- Django',
         level: 8,
       },
       {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
+        name: 'C#',
+        level: 6,
       },
     ],
   },
   {
-    name: 'Mobile development',
+    name: 'Frameworks & Libraries',
     skills: [
       {
-        name: 'React Native',
-        level: 9,
-      },
-      {
-        name: 'Flutter',
-        level: 4,
-      },
-      {
-        name: 'Swift',
-        level: 3,
+        name: `TensorFlow,
+Keras, PyTorch, Express, LangChain, Llama-Index`,
+        level: 7,
       },
     ],
   },
+  {
+    name: 'Data Science & Machine Learning',
+    skills: [
+      {
+        name: `NLP, Deep Learning, Data Visualization`,
+        level: 7,
+      },
+    ],
+  },
+  {
+    name: 'Tools & Technologies',
+    skills: [
+      {
+        name: `GitHub, IDEs, Docker, Kubernetes, Git, JIRA, AWS, RESTful APIs, Linux bash`,
+        level: 9,
+      },
+    ],
+  },
+  {
+    name: 'Agile Working Models:',
+    skills: [
+      {
+        name: `Scrum, Kanban`,
+        level: 9,
+      },
+    ],
+  },
+  {
+    name: 'Databases',
+    skills: [
+      {
+        name: `MySQL, MongoDB, PostgreSQL`,
+        level: 9,
+      },
+    ],
+  }
 ];
 
 /**
@@ -266,7 +298,7 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2024 - current',
+    date: 'April 2024 - Present',
     location: 'Trier, Germany',
     title: 'Masters in Natural Language Processing',
     content: <p>I am gaining a solid foundation in NLP concepts and advanced machine learning techniques. I am acquiring hands-on experience with Python and deep learning frameworks like TensorFlow and PyTorch, working on projects in text classification, sentiment analysis, and conversational AI. My studies are enhancing my research skills and my ability to critically analyze and implement state-of-the-art NLP models, preparing me to tackle complex language processing challenges in real-world applications.
@@ -278,33 +310,31 @@ export const education: TimelineItem[] = [
     </p>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'August 2016 - May 2020',
+    location: 'Chandigarh, India',
+    title: 'Bachelors of Engineering- Computer Science and Engineering',
+    content: <p>I built a strong foundation in computer science, focusing on algorithms, data structures, databases, and software engineering. I mastered programming languages such as Java, C++, and Python, and gained experience in software development through hands-on projects. I also learned about operating systems, computer networks, and web development. This program enhanced my problem-solving skills, ability to design efficient algorithms, and competence in developing robust software solutions, preparing me for advanced studies and professional challenges in the tech industry.</p>,
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'March 2022- March 2024',
+    location: 'Pune, India',
+    title: 'Barclays - Senior Software Developer',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+       
       </p>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: 'Sept 2020 - March 2022',
+    location: 'Hyderabad, India',
+    title: 'Hexagon CCI - Software Developer',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        
       </p>
     ),
   },
@@ -317,18 +347,23 @@ export const testimonial: TestimonialSection = {
   imageSrc: testimonialImage,
   testimonials: [
     {
-      name: 'John Doe',
-      text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
+      name: 'Abhishek Diwan',
+      text: `Working with Shivang has been an incredible experience. His expertise in NLP and full-stack development was evident in our projects at Barclays, where he significantly improved the accuracy and efficiency of our NLP models. Shivang's proactive approach and strong collaboration skills made him an invaluable team member, consistently delivering high-quality work.`,
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
     },
     {
-      name: 'Jane Doe',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
+      name: 'Durga Prasad Palle',
+      text: `Shivang's contribution to the Hexagon OnCall Dispatch project was outstanding. His ability to architect and manage responsive web applications, coupled with his skill in optimizing performance, greatly enhanced our product. His dedication to understanding client needs and translating them into effective solutions was impressive, showcasing his strong technical and problem-solving skills.`,
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
     },
     {
-      name: 'Someone else',
+      name: 'Pooja Parakh',
       text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
+      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
+    },
+    {
+      name: 'Prarthana Mukherjee',
+      text: `Working with Shivang at Barclays was a great experience. His expertise in deploying NLP models into production was instrumental in improving our system's performance. Shivang's ability to handle complex technical challenges and deliver high-quality solutions under tight deadlines was impressive. His collaborative spirit and proactive approach to problem-solving made him an invaluable team member.`,
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
     },
   ],
