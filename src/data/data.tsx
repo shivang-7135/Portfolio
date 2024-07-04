@@ -12,17 +12,17 @@ import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
+// import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
+// import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
+// import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
+// import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
+// import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
+// import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
+// import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
+// import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
+// import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
+// import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profile.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -84,7 +84,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/asset/resume.pdf',
+      href: '/resume.pdf',
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -178,7 +178,7 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: `TensorFlow,
-Keras, PyTorch, Express, LangChain, Llama-Index`,
+Keras, PyTorch, Express, LangChain, Llama-Index, FastAPI, Flask `,
         level: 7,
       },
     ],
@@ -202,10 +202,10 @@ Keras, PyTorch, Express, LangChain, Llama-Index`,
     ],
   },
   {
-    name: 'Agile Working Models:',
+    name: 'Devops and Agile Working Models',
     skills: [
       {
-        name: `Scrum, Kanban`,
+        name: `Scrum, Kanban, CI/CD, Cloud Automation`,
         level: 9,
       },
     ],
@@ -229,79 +229,79 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Chatbot',
     description: 'chatbot having multiple model',
     url: 'https://chatbot-phi-sandy.vercel.app/',
-    image: porfolioImage1,
-    disable: false,
-  },
-  {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage2,
-    disable: false,
-  },
-  {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage3,
-    disable: false,
-  },
-  {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage4,
-    disable: false,
-  },
-  {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
     image: porfolioImage5,
     disable: false,
   },
-  {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage6,
-    disable: false,
-  },
-  {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage7,
-    disable: false,
-  },
-  {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage8,
-    disable: false,
-  },
-  {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage9,
-    disable: false,
-  },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
-    disable: false,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
-    disable: false,
-  },
+  // {
+  //   title: 'Project title 2',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage2,
+  //   disable: false,
+  // },
+  // {
+  //   title: 'Project title 3',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage3,
+  //   disable: false,
+  // },
+  // {
+  //   title: 'Project title 4',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage4,
+  //   disable: false,
+  // },
+  // {
+  //   title: 'Project title 5',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage5,
+  //   disable: false,
+  // },
+  // {
+  //   title: 'Project title 6',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage6,
+  //   disable: false,
+  // },
+  // {
+  //   title: 'Project title 7',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage7,
+  //   disable: false,
+  // },
+  // {
+  //   title: 'Project title 8',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage8,
+  //   disable: false,
+  // },
+  // {
+  //   title: 'Project title 9',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage9,
+  //   disable: false,
+  // },
+  // {
+  //   title: 'Project title 10',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage10,
+  //   disable: false,
+  // },
+  // {
+  //   title: 'Project title 11',
+  //   description: 'Give a short description of your project here.',
+  //   url: 'https://reactresume.com',
+  //   image: porfolioImage11,
+  //   disable: false,
+  // },
 ];
 
 /**
@@ -323,8 +323,8 @@ export const education: TimelineItem[] = [
   {
     date: 'August 2016 - May 2020',
     location: 'Chandigarh, India',
-    title: 'Bachelors of Engineering- Computer Science and Engineering',
-    content: <p>I built a strong foundation in computer science, focusing on algorithms, data structures, databases, and software engineering. I mastered programming languages such as Java, C++, and Python, and gained experience in software development through hands-on projects. I also learned about operating systems, computer networks, and web development. This program enhanced my problem-solving skills, ability to design efficient algorithms, and competence in developing robust software solutions, preparing me for advanced studies and professional challenges in the tech industry.</p>,
+    title: 'Bachelors of Engineering in Computer Science - Cloud Computing(Hons)',
+    content: <p>I hold a Bachelor of Engineering degree in Computer Science with a specialization in Cloud Computing (Hons). During my undergraduate studies, I built a strong foundation in computer science, focusing on algorithms, data structures, databases, and software engineering. I mastered programming languages such as Java, C++, and Python, and gained experience in software development through hands-on projects. I also worked extensively with cloud computing technologies, including AWS and cloud automation tools, which provided me with practical experience in deploying and managing scalable applications. This program enhanced my problem-solving skills, ability to design efficient algorithms, and competence in developing robust software solutions, preparing me for advanced studies and professional challenges in the tech industry.</p>,
   },
 ];
 
