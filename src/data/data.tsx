@@ -44,7 +44,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
   title: 'Shivang sinha',
-  description: "This is about me.",
+  description: "",
 };
 
 /**
