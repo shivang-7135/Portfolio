@@ -17,7 +17,7 @@ import heroImage from '../images/header-background.webp';
 // import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 // import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-// import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
+import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
 // import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
 // import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
 // import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
@@ -227,18 +227,18 @@ Keras, PyTorch, Express, LangChain, Llama-Index, FastAPI, Flask `,
 export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Chatbot',
-    description: 'chatbot having multiple model',
+    description: 'Chatbot having multiple model and cool looking interface',
     url: 'https://chatbot-phi-sandy.vercel.app/',
     image: porfolioImage5,
     disable: false,
   },
-  // {
-  //   title: 'Project title 2',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://reactresume.com',
-  //   image: porfolioImage2,
-  //   disable: false,
-  // },
+  {
+    title: 'Automated Resume Scanner',
+    description: 'Work in progress. You can still check the end to end proposed workflow.',
+    url: 'https://github.com/shivang-7135/resumeScreeningProject/blob/master/AutomatedJobApplication.pdf',
+    image: porfolioImage6,
+    disable: false,
+  },
   // {
   //   title: 'Project title 3',
   //   description: 'Give a short description of your project here.',
@@ -360,22 +360,22 @@ export const testimonial: TestimonialSection = {
     {
       name: 'Abhishek Diwan',
       text: `Working with Shivang has been an incredible experience. His expertise in NLP and full-stack development was evident in our projects at Barclays, where he significantly improved the accuracy and efficiency of our NLP models. Shivang's proactive approach and strong collaboration skills made him an invaluable team member, consistently delivering high-quality work.`,
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
+      image: 'https://media.licdn.com/dms/image/D4D35AQEWixXU7SQCkw/profile-framedphoto-shrink_100_100/0/1719152067861?e=1721394000&v=beta&t=h1DbhWOrJxZVufFxcYFkvnBDIWuytwwweWAeLI4QWRk',
     },
     {
       name: 'Durga Prasad Palle',
       text: `Shivang's contribution to the Hexagon OnCall Dispatch project was outstanding. His ability to architect and manage responsive web applications, coupled with his skill in optimizing performance, greatly enhanced our product. His dedication to understanding client needs and translating them into effective solutions was impressive, showcasing his strong technical and problem-solving skills.`,
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
+      image: 'https://media.licdn.com/dms/image/C4D03AQFvzmOqk7nC0A/profile-displayphoto-shrink_100_100/0/1640940856526?e=1726099200&v=beta&t=XmLohKmKhq25S9GI4F02xWPWeponqsJ7V0jbvKy73pI',
     },
     {
       name: 'Pooja Parakh',
       text: `Shivang is a highly skilled and dedicated IT professional. His work on deploying NLP models into production at Barclays demonstrated his deep technical knowledge and practical experience. Shivang's strong work ethic, attention to detail, and ability to work efficiently in a team make him a remarkable asset in any project or organization`,
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
+      image: 'https://media.licdn.com/dms/image/D4D03AQEA3JYrV4yGfQ/profile-displayphoto-shrink_100_100/0/1702575375751?e=1726099200&v=beta&t=QZJ09N2_tqAbg8ZykSNtjH4Y4kGIBr5alZ2m5I44Sas',
     },
     {
       name: 'Prarthana Mukherjee',
       text: `Working with Shivang at Barclays was a great experience. His expertise in deploying NLP models into production was instrumental in improving our system's performance. Shivang's ability to handle complex technical challenges and deliver high-quality solutions under tight deadlines was impressive. His collaborative spirit and proactive approach to problem-solving made him an invaluable team member.`,
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
+      image: 'https://media.licdn.com/dms/image/D4D03AQGE-okkMT1PIg/profile-displayphoto-shrink_100_100/0/1716213606086?e=1726099200&v=beta&t=1xQCkGHez1Dhcc5TVtYZBeye9IjhxNPo99L0ZdjG_Ss',
     },
   ],
 };
