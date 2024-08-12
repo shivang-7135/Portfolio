@@ -14,7 +14,7 @@ import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 import heroImage from '../images/header-background.webp';
 // import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 // import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-// import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
+import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 // import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
 import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
@@ -239,13 +239,13 @@ export const portfolioItems: PortfolioItem[] = [
     image: porfolioImage6,
     disable: false,
   },
-  // {
-  //   title: 'Project title 3',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://reactresume.com',
-  //   image: porfolioImage3,
-  //   disable: false,
-  // },
+  {
+    title: 'Shivy bot',
+    description: 'Chat with files .',
+    url: 'https://shivybot.streamlit.app/',
+    image: porfolioImage3,
+    disable: false,
+  },
   // {
   //   title: 'Project title 4',
   //   description: 'Give a short description of your project here.',
