@@ -15,7 +15,7 @@ import heroImage from '../images/header-background.webp';
 // import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 // import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-// import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
+import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
 import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
 import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
 // import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
@@ -246,13 +246,13 @@ export const portfolioItems: PortfolioItem[] = [
     image: porfolioImage3,
     disable: false,
   },
-  // {
-  //   title: 'Project title 4',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://reactresume.com',
-  //   image: porfolioImage4,
-  //   disable: false,
-  // },
+  {
+    title: 'German Teacher',
+    description: 'Learn German easy and fast',
+    url: 'https://germanteacher.streamlit.app/',
+    image: porfolioImage4,
+    disable: false,
+  },
   // {
   //   title: 'Project title 5',
   //   description: 'Give a short description of your project here.',
