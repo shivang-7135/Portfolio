@@ -242,7 +242,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Shivy bot',
     description: 'Chat with files .',
-    url: 'https://shivybot.streamlit.app/',
+    url: 'https://shivybot2.streamlit.app/',
     image: porfolioImage3,
     disable: false,
   },
