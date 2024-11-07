@@ -330,6 +330,15 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
+    date: 'November 2024- current',
+    location: 'Munich, Germany',
+    title: 'Zeiss - Werkstudent (AI)',
+    content: (
+      <p>
+       
+      </p>
+    ),
+  },{
     date: 'March 2022- March 2024',
     location: 'Pune, India',
     title: 'Barclays - Senior Software Developer',
