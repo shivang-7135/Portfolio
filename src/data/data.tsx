@@ -84,7 +84,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/resume.pdf',
+      href: '/resumes.pdf', //please update it properly when you upload a new resume here.
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
