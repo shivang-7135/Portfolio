@@ -1,40 +1,47 @@
-import {NextPage} from 'next';
 import Head from 'next/head';
 import {useRouter} from 'next/router';
 import {memo, PropsWithChildren} from 'react';
 
-import {HomepageMeta} from '../../data/dataDef';
+import {homePageMeta} from '../../data/data';
 
-const Page: NextPage<PropsWithChildren<HomepageMeta>> = memo(({children, title, description}) => {
-  const {asPath: pathname} = useRouter();
+const Page: React.FC<PropsWithChildren<{title: string; description: string}>> = memo(
+  ({children, title, description}) => {
+    const {asPath} = useRouter();
+    const {ogImageUrl, twitterCardType, twitterTitle, twitterSite, twitterCreator, twitterDomain, twitterUrl, twitterDescription, twitterImageUrl} = homePageMeta;
 
-  return (
-    <>
-      <Head>
-        <title>{title}</title>
-        <meta content={description} name="description" />
+    return (
+      <>
+        <Head>
+          <title>{title}</title>
+          <meta content={description} name="description" />
 
-        {/* several domains list the same content, make sure google knows we mean this one. */}
-        <link href={`https://reactresume.com${pathname}`} key="canonical" rel="canonical" />
+          {/* Open Graph */}
+          <meta content={title} property="og:title" />
+          <meta content={description} property="og:description" />
+          <meta content={`https://shivangsinha.website${asPath}`} property="og:url" />
 
-        <link href="/favicon.ico" rel="icon" sizes="any" />
-        <link href="/icon.svg" rel="icon" type="image/svg+xml" />
-        <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
-        <link href="/site.webmanifest" rel="manifest" />
+          {ogImageUrl && <meta content={ogImageUrl} property="og:image" />}
+          {/* Twitter */}
+          {twitterCardType && <meta content={twitterCardType} name="twitter:card" />}
+          {twitterTitle && <meta content={twitterTitle} name="twitter:title" />}
+          {twitterSite && <meta content={twitterSite} name="twitter:site" />}
+          {twitterCreator && <meta content={twitterCreator} name="twitter:creator" />}
+          {twitterDomain && <meta content={twitterDomain} property="twitter:domain" />}
+          {twitterUrl && <meta content={twitterUrl} property="twitter:url" />}
+          {twitterDescription && <meta content={twitterDescription} name="twitter:description" />}
+          {twitterImageUrl && <meta content={twitterImageUrl} name="twitter:image" />}
 
-        {/* Open Graph : https://ogp.me/ */}
-        <meta content={title} property="og:title" />
-        <meta content={description} property="og:description" />
-        <meta content={`https://reactresume.com${pathname}`} property="og:url" />
-
-        {/* Twitter: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/markup */}
-        <meta content={title} name="twitter:title" />
-        <meta content={description} name="twitter:description" />
-      </Head>
-      {children}
-    </>
-  );
-});
+          <link href="https://shivangsinha.website" rel="canonical" />
+        </Head>
+        {/* Hexagonal 3D Background */}
+        <div className="hex-bg" aria-hidden="true" />
+        <div className="relative z-10">
+          {children}
+        </div>
+      </>
+    );
+  },
+);
 
 Page.displayName = 'Page';
 export default Page;

@@ -1,35 +1,44 @@
-import {FC, memo, PropsWithChildren, useMemo} from 'react';
+import {motion} from 'framer-motion';
+import {FC, memo} from 'react';
 
-import {Skill as SkillType, SkillGroup as SkillGroupType} from '../../../data/dataDef';
+import {skills} from '../../../data/data';
 
-export const SkillGroup: FC<PropsWithChildren<{skillGroup: SkillGroupType}>> = memo(({skillGroup}) => {
-  const {name, skills} = skillGroup;
+export const SkillsSection: FC = memo(() => {
   return (
-    <div className="flex flex-col">
-      <span className="text-center text-lg font-bold">{name}</span>
-      <div className="flex flex-col gap-y-2">
-        {skills.map((skill, index) => (
-          <Skill key={`${skill.name}-${index}`} skill={skill} />
-        ))}
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {skills.map(({name, skills: skillItems}, catIndex) => (
+        <motion.div 
+          key={name} 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ delay: catIndex * 0.1, type: 'spring' }}
+          className="card-float p-5"
+        >
+          <h4 className="font-heading text-sm font-bold text-text-primary mb-3 uppercase tracking-wider">
+            {name}
+          </h4>
+          <div className="flex flex-wrap gap-2">
+            {skillItems.map(({name: skillName}) => (
+              <motion.span 
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                key={skillName} 
+                className="pill text-xs cursor-pointer"
+              >
+                {skillName}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+      ))}
     </div>
   );
 });
 
-SkillGroup.displayName = 'SkillGroup';
+SkillsSection.displayName = 'SkillsSection';
 
-export const Skill: FC<{skill: SkillType}> = memo(({skill}) => {
-  const {name, level, max = 10} = skill;
-  const percentage = useMemo(() => Math.round((level / max) * 100), [level, max]);
-
-  return (
-    <div className="flex flex-col">
-      <span className="ml-2 text-sm font-medium">{name}</span>
-      <div className="h-5 w-full overflow-hidden rounded-full bg-neutral-300">
-        <div className="h-full rounded-full bg-orange-400" style={{width: `${percentage}%`}} />
-      </div>
-    </div>
-  );
-});
-
-Skill.displayName = 'Skill';
+// Keep default export for backward compatibility
+const Skills: FC = memo(() => <SkillsSection />);
+Skills.displayName = 'Skills';
+export default Skills;

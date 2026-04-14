@@ -20,7 +20,22 @@
   }
 }
 
-/* Global styles */
+/* ─── Design System Custom Properties ─── */
+:root {
+  --color-accent: #E77C19;
+  --color-accent-hover: #CC6B13;
+  --color-surface: #FFFFFF;
+  --color-bg: #E6E6E6;
+  --color-bg-alt: #DCDCDC;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #666666;
+  --color-text-muted: #9A9A9A;
+  --radius-card: 64px;
+  --shadow-card: 0 4px 32px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 12px 48px rgba(0, 0, 0, 0.1);
+}
+
+/* ─── Global Resets ─── */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,9 +50,10 @@ html {
 body {
   position: relative;
   width: 100%;
-  color: #444444;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
-  background-color: #fafafa;
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--color-bg);
+  overflow-x: hidden;
 }
 
 td,
@@ -48,4 +64,131 @@ th {
 
 th {
   font-weight: 600;
+}
+
+/* ─── Hexagonal 3D Background Pattern ─── */
+.hex-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.8;
+  background-image:
+    linear-gradient(30deg, #d8d8d8 12%, transparent 12.5%, transparent 87%, #d8d8d8 87.5%, #d8d8d8),
+    linear-gradient(150deg, #d8d8d8 12%, transparent 12.5%, transparent 87%, #d8d8d8 87.5%, #d8d8d8),
+    linear-gradient(30deg, #d8d8d8 12%, transparent 12.5%, transparent 87%, #d8d8d8 87.5%, #d8d8d8),
+    linear-gradient(150deg, #d8d8d8 12%, transparent 12.5%, transparent 87%, #d8d8d8 87.5%, #d8d8d8),
+    linear-gradient(60deg, #e0e0e066 25%, transparent 25.5%, transparent 75%, #e0e0e066 75%, #e0e0e066),
+    linear-gradient(60deg, #e0e0e066 25%, transparent 25.5%, transparent 75%, #e0e0e066 75%, #e0e0e066);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+/* ─── Floating Card Utility ─── */
+.card-float {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-float:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* ─── Section Label (like "/ About Me") ─── */
+.section-label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-label::before {
+  content: '✦';
+  font-family: sans-serif;
+  color: var(--color-accent);
+  font-size: 1rem;
+}
+
+/* ─── Scroll Reveal ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Pill Badge ─── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pill:hover {
+  background: var(--color-accent);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+}
+
+/* ─── Glassmorphism ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Gradient Text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Timeline ─── */
+.timeline-line {
+  position: relative;
+}
+
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-accent), transparent);
+  border-radius: 1px;
+}
+
+/* ─── Custom Selection ─── */
+::selection {
+  background: rgba(230, 126, 34, 0.25);
+  color: var(--color-text-primary);
 }

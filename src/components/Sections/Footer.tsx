@@ -1,4 +1,3 @@
-import {ChevronUpIcon} from '@heroicons/react/24/solid';
 import {FC, memo} from 'react';
 
 import {SectionId} from '../../data/data';
@@ -7,28 +6,32 @@ import Socials from '../Socials';
 const currentYear = new Date().getFullYear();
 
 const Footer: FC = memo(() => (
-  <div className="relative bg-neutral-900 px-4 pb-6 pt-12 sm:px-8 sm:pb-8 sm:pt-14">
-    <div className="absolute inset-x-0 -top-4 flex justify-center sm:-top-6">
-      <a
-        className="rounded-full bg-neutral-100 p-1 ring-white ring-offset-2 ring-offset-gray-700/80 focus:outline-none focus:ring-2 sm:p-2"
-        href={`/#${SectionId.Hero}`}>
-        <ChevronUpIcon className="h-6 w-6 bg-transparent sm:h-8 sm:w-8" />
-      </a>
+  <div className="relative px-4 pb-24 pt-12 sm:px-8 sm:pb-24 sm:pt-14">
+    {/* Separator */}
+    <div className="mx-auto max-w-screen-lg mb-8">
+      <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
     </div>
-    <div className="flex flex-col items-center gap-y-6">
-      <div className="flex gap-x-4 text-neutral-500">
+
+    <div className="mx-auto max-w-screen-lg flex flex-col items-center gap-y-6">
+      {/* Back to top */}
+      <a
+        className="flex items-center gap-x-2 text-text-muted hover:text-accent transition-colors duration-300 text-sm font-body"
+        href={`/#${SectionId.Hero}`}>
+        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path d="M5 15l7-7 7 7" />
+        </svg>
+        Back to top
+      </a>
+
+      {/* Social links */}
+      <div className="flex gap-x-5 text-text-muted">
         <Socials />
       </div>
-      {/* <a
-        className="-m-2 flex items-center gap-x-1 rounded-md p-2 ring-yellow focus:outline-none focus:ring-2"
-        href="https://reactresume.com">
-        <BoltIcon className="h-5 w-5 text-yellow" />
-        <span>
-          Inspired from <span className="text-white">Re</span>
-          <span className="italic text-yellow">act</span>
-        </span>
-      </a> */}
-      <span className="text-sm text-neutral-700">© Copyright {currentYear} Shivang Sinha</span>
+
+      {/* Copyright */}
+      <span className="text-xs text-text-muted font-body">
+        © {currentYear} Shivang Sinha. All rights reserved.
+      </span>
     </div>
   </div>
 ));

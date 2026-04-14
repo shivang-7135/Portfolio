@@ -1,5 +1,4 @@
 import {DevicePhoneMobileIcon, EnvelopeIcon, MapPinIcon} from '@heroicons/react/24/outline';
-import classNames from 'classnames';
 import {FC, memo} from 'react';
 
 import {contact, SectionId} from '../../../data/data';
@@ -26,40 +25,53 @@ const ContactValueMap: Record<ContactType, ContactValue> = {
 const Contact: FC = memo(() => {
   const {headerText, description, items} = contact;
   return (
-    <Section className="bg-neutral-800" sectionId={SectionId.Contact}>
-      <div className="flex flex-col gap-y-6">
-        <div className="flex flex-col gap-6 md:flex-row md:items-center">
-          <EnvelopeIcon className="hidden h-16 w-16 text-white md:block" />
-          <h2 className="text-2xl font-bold text-white">{headerText}</h2>
-        </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="order-2 col-span-1 md:order-1 ">
-            <ContactForm />
+    <Section sectionId={SectionId.Contact}>
+      <div className="card-float p-8 md:p-14 rounded-5xl border border-gray-100 bg-surface">
+        <div className="flex flex-col gap-y-12">
+          {/* Header */}
+          <div>
+            <h2 className="section-label mb-4">*/ Let's Connect</h2>
+            <h3 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-6">
+              {headerText}
+            </h3>
+            <p className="text-text-secondary font-body text-lg max-w-lg">{description}</p>
           </div>
-          <div className="order-1 col-span-1 flex flex-col gap-y-4 md:order-2">
-            <p className="prose leading-6 text-neutral-300">{description}</p>
-            <dl className="flex flex-col space-y-4 text-base text-neutral-500 sm:space-y-2">
-              {items.map(({type, text, href}) => {
-                const {Icon, srLabel} = ContactValueMap[type];
-                return (
-                  <div key={srLabel}>
-                    <dt className="sr-only">{srLabel}</dt>
-                    <dd className="flex items-center">
-                      <a
-                        className={classNames(
-                          '-m-2 flex rounded-md p-2 text-neutral-300 hover:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500',
-                          {'hover:text-white': href},
-                        )}
-                        href={href}
-                        target="_blank">
-                        <Icon aria-hidden="true" className="h-4 w-4 flex-shrink-0 text-neutral-100 sm:h-5 sm:w-5" />
-                        <span className="ml-3 text-sm sm:text-base">{text}</span>
-                      </a>
-                    </dd>
-                  </div>
-                );
-              })}
-            </dl>
+
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+            {/* Form */}
+            <div className="order-2 md:order-1">
+              <ContactForm />
+            </div>
+
+            {/* Contact details */}
+            <div className="order-1 md:order-2 flex flex-col gap-y-4">
+              <h3 className="font-heading text-lg font-bold text-text-primary">Contact Details</h3>
+              <dl className="flex flex-col space-y-3">
+                {items.map(({type, text, href}) => {
+                  const {Icon, srLabel} = ContactValueMap[type];
+                  return (
+                    <div key={srLabel}>
+                      <dt className="sr-only">{srLabel}</dt>
+                      <dd>
+                        <a
+                          className="flex items-center gap-x-3 p-3 rounded-2xl hover:bg-bg transition-colors duration-300 text-text-secondary hover:text-accent group"
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer">
+                          <div className="flex items-center justify-center h-10 w-10 rounded-xl bg-bg group-hover:bg-accent/10 transition-colors duration-300">
+                            <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
+                          </div>
+                          <div>
+                            <span className="text-xs text-text-muted font-body uppercase tracking-wider">{srLabel}</span>
+                            <p className="text-sm font-medium text-text-primary font-body">{text}</p>
+                          </div>
+                        </a>
+                      </dd>
+                    </div>
+                  );
+                })}
+              </dl>
+            </div>
           </div>
         </div>
       </div>
@@ -67,5 +79,5 @@ const Contact: FC = memo(() => {
   );
 });
 
-Contact.displayName = 'About';
+Contact.displayName = 'Contact';
 export default Contact;

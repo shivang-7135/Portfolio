@@ -1,16 +1,23 @@
+import {motion} from 'framer-motion';
 import {FC, memo, PropsWithChildren} from 'react';
 
 const ResumeSection: FC<PropsWithChildren<{title: string}>> = memo(({title, children}) => {
   return (
-    <div className="grid grid-cols-1 gap-y-4 py-8 first:pt-0 last:pb-0  md:grid-cols-4">
-      <div className="col-span-1 flex justify-center md:justify-start">
-        <div className="relative h-max">
-          <h2 className="text-xl font-bold uppercase text-neutral-800">{title}</h2>
-          <span className="absolute inset-x-0 -bottom-1 border-b-2 border-orange-400" />
-        </div>
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, type: 'spring' }}
+      className="card-float p-6 md:p-8"
+    >
+      <h3 className="font-heading text-2xl font-bold text-text-primary mb-6 flex items-center gap-3">
+        <span className="h-8 w-1 rounded-full bg-accent" />
+        {title}
+      </h3>
+      <div className="timeline-line pl-6 space-y-6">
+        {children}
       </div>
-      <div className="col-span-1 flex flex-col md:col-span-3">{children}</div>
-    </div>
+    </motion.div>
   );
 });
 

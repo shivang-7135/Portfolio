@@ -5,6 +5,7 @@ import {
   FlagIcon,
   MapIcon,
   SparklesIcon,
+  BriefcaseIcon,
 } from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
@@ -12,10 +13,6 @@ import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 import heroImage from '../images/header-background.webp';
-// portfolio images replaced with curated Unsplash URLs in portfolioItems
-// import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-// import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-// import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profile.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -36,8 +33,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Shivang Sinha – GenAI / ML Engineer',
-  description: 'GenAI / ML Engineer with 5+ years of experience in LLM, RAG, and full-stack development. M.Sc. NLP candidate at University of Trier. Available for full-time roles from March 2026.',
+  title: 'Shivang Sinha – AI Full Stack Engineer',
+  description: 'AI Full Stack Engineer with 5+ years delivering production-grade applications end-to-end — Python/FastAPI backends, React/TypeScript frontends, and REST API architectures. Currently building LLM-powered systems at Carl Zeiss. M.Sc. NLP (University of Trier, thesis completed). Available full-time from March 2026.',
 };
 
 /**
@@ -64,24 +61,20 @@ export const heroData: Hero = {
   name: `I'm Shivang Sinha`,
   description: (
     <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Germany-based <strong className="text-stone-100">GenAI / ML Engineer</strong> with 5+ years of experience delivering{' '}
-        <strong className="text-stone-100">LLM- and RAG-powered systems</strong> at Carl Zeiss, Barclays, and Hexagon.{' '}
-        Currently completing an <strong className="text-stone-100">M.Sc. in Natural Language Processing</strong> at the University of Trier,{' '}
-        with a thesis benchmarking NLP models for AI/ML skill extraction. Available for full-time roles from{' '}
-        <strong className="text-stone-100">March 2026</strong>.
+      <p className="text-base text-text-secondary sm:text-lg lg:text-xl font-body max-w-2xl">
+        AI Full Stack Engineer with <strong className="text-text-primary">5+ years</strong> delivering production-grade{' '}
+        <strong className="text-text-primary">LLM- and RAG-powered systems</strong> at Carl Zeiss, Barclays, and Hexagon.{' '}
+        M.Sc. in <strong className="text-text-primary">Natural Language Processing</strong> — University of Trier.
       </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time, you can catch me playing <strong className="text-stone-100">Badminton or Cricket</strong>,
-        listening to <strong className="text-stone-100">music</strong>, or exploring{' '}
-        <strong className="text-stone-100">Koblenz</strong>.
+      <p className="text-sm text-text-muted sm:text-base font-body mt-2">
+        Available for full-time roles from <strong className="text-accent">March 2026</strong> · Munich, Germany
       </p>
     </>
   ),
   actions: [
     {
-      href: '/SinhaShivang1.pdf',
-      text: 'Resume',
+      href: '/ShivangSinhaCVv3.pdf',
+      text: 'Download CV',
       primary: true,
       Icon: ArrowDownTrayIcon,
     },
@@ -98,13 +91,14 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `GenAI / ML Engineer with 5+ years of hands-on experience shipping LLM and RAG-powered products in enterprise environments at Carl Zeiss, Barclays, and Hexagon. I architect and deliver intelligent systems — from Azure OpenAI copilots and multi-agent pipelines to full-stack banking platforms — that solve real problems at scale. Currently completing an M.Sc. in Natural Language Processing at the University of Trier, with a thesis benchmarking BERT, rule-based and LLM-based models for skill extraction across 1,000+ German AI/ML job postings. Open to GenAI / ML Engineer roles in the EU from March 2026. Valid German residence permit.`,
+  description: `AI Full Stack Engineer with 5+ years delivering production-grade applications end-to-end — Python/FastAPI backends, React/TypeScript frontends, and REST API architectures in enterprise-regulated environments. Currently building an LLM-powered Copilot at Carl Zeiss on Azure; previously shipped high-reliability transactional systems at Barclays (99.9% uptime) and industrial platforms at Hexagon (500+ users). Combines deep AI/ML expertise (RAG, multi-agent systems, LLM orchestration) with strong DevSecOps practices across Docker, CI/CD, and Azure. Proven track record leading code reviews, collaborating with vendor teams, and driving AI-assisted development adoption. M.Sc. in NLP (University of Trier, thesis completed).`,
   aboutItems: [
-    {label: 'Location', text: 'Koblenz, Germany', Icon: MapIcon},
+    {label: 'Location', text: 'Munich, Germany', Icon: MapIcon},
     {label: 'Age', text: '28', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Indian', Icon: FlagIcon},
-    {label: 'Interests', text: 'AI, Badminton and Cricket', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Trier', Icon: AcademicCapIcon},
+    {label: 'Interests', text: 'AI, Badminton & Cricket', Icon: SparklesIcon},
+    {label: 'Study', text: 'M.Sc. NLP – University of Trier', Icon: AcademicCapIcon},
+    {label: 'Availability', text: 'Full-time from March 2026', Icon: BriefcaseIcon},
   ],
 };
 
@@ -113,46 +107,79 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
+    name: 'Backend Development',
+    skills: [
+      {name: 'Python', level: 10},
+      {name: 'FastAPI', level: 9},
+      {name: 'Flask', level: 8},
+      {name: 'Django', level: 8},
+      {name: 'Pydantic', level: 9},
+      {name: 'Celery', level: 7},
+      {name: 'REST API Design', level: 9},
+      {name: 'Async Processing', level: 8},
+    ],
+  },
+  {
+    name: 'Frontend Development',
+    skills: [
+      {name: 'React', level: 9},
+      {name: 'TypeScript', level: 8},
+      {name: 'JavaScript', level: 9},
+      {name: 'SPA Architecture', level: 8},
+      {name: 'API Integration', level: 9},
+    ],
+  },
+  {
+    name: 'AI / Machine Learning',
+    skills: [
+      {name: 'LLMs', level: 9},
+      {name: 'RAG', level: 9},
+      {name: 'AI Agents', level: 9},
+      {name: 'Agentic Workflows', level: 9},
+      {name: 'Prompt Engineering', level: 9},
+      {name: 'LLM Orchestration', level: 8},
+      {name: 'NLP', level: 9},
+      {name: 'Fine-tuning', level: 8},
+    ],
+  },
+  {
+    name: 'Frameworks & Tools',
+    skills: [
+      {name: 'LangChain', level: 9},
+      {name: 'LangGraph', level: 9},
+      {name: 'HuggingFace', level: 8},
+      {name: 'PyTorch', level: 7},
+      {name: 'spaCy', level: 8},
+      {name: 'BERT', level: 8},
+      {name: 'MCP', level: 8},
+      {name: 'Vector Embeddings', level: 8},
+    ],
+  },
+  {
+    name: 'Cloud & DevSecOps',
+    skills: [
+      {name: 'Microsoft Azure', level: 8},
+      {name: 'Azure OpenAI', level: 9},
+      {name: 'Docker', level: 8},
+      {name: 'CI/CD Pipelines', level: 8},
+      {name: 'MLOps', level: 7},
+    ],
+  },
+  {
+    name: 'Databases',
+    skills: [
+      {name: 'SQL', level: 8},
+      {name: 'PostgreSQL', level: 8},
+      {name: 'MongoDB', level: 7},
+      {name: 'FAISS', level: 8},
+      {name: 'Chroma', level: 8},
+    ],
+  },
+  {
     name: 'Spoken Languages',
     skills: [
       {name: 'English (C1 – Fluent)', level: 10},
       {name: 'German (B1/B2 – Intermediate)', level: 5},
-    ],
-  },
-  {
-    name: 'LLMs & NLP',
-    skills: [
-      {name: 'Large Language Models (LLMs) & Generative AI', level: 9},
-      {name: 'Retrieval-Augmented Generation (RAG)', level: 9},
-      {name: 'Prompt Engineering', level: 9},
-      {name: 'BERT fine-tuning & Text Classification', level: 8},
-      {name: 'HuggingFace, spaCy, LangChain, LangGraph, Phoenix', level: 8},
-    ],
-  },
-  {
-    name: 'Programming & Backend',
-    skills: [
-      {name: 'Python (FastAPI, Flask, Django)', level: 9},
-      {name: '.NET / C#', level: 7},
-      {name: 'TypeScript / React', level: 8},
-      {name: 'REST APIs & Microservices', level: 9},
-    ],
-  },
-  {
-    name: 'Cloud & Data',
-    skills: [
-      {name: 'Microsoft Azure (Azure OpenAI)', level: 8},
-      {name: 'Docker & CI/CD', level: 8},
-      {name: 'SQL, MySQL, MongoDB', level: 8},
-      {name: 'Vector Databases (FAISS, Chroma)', level: 8},
-    ],
-  },
-  {
-    name: 'Tools & Practices',
-    skills: [
-      {name: 'Git, GitHub, JIRA', level: 9},
-      {name: 'Agile / Scrum', level: 9},
-      {name: 'Linux / Bash', level: 8},
     ],
   },
 ];
@@ -162,6 +189,13 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
+    title: 'DailyAI – Personalised AI News App',
+    description: 'A personalised AI news platform delivering curated updates every 60 minutes with optimised read times. Features cross-device sync, personalised feeds powered by NLP-based ranking, and a modern PWA experience. Built with React, Supabase, and intelligent RSS aggregation.',
+    url: 'https://dailyai.site/',
+    image: '/images/portfolio/dailyai.png',
+    disable: false,
+  },
+  {
     title: 'NLP Skill Extraction – M.Sc. Thesis',
     description: 'Research-grade NLP pipeline comparing BERT fine-tuning, rule-based systems and GPT-4 for extracting AI/ML skills from 1,000+ real German job postings. Achieved state-of-the-art F1 on a custom annotated dataset, enabling longitudinal market trend analysis across 3 years of job-market data.',
     url: 'https://github.com/shivang-7135',
@@ -169,8 +203,8 @@ export const portfolioItems: PortfolioItem[] = [
     disable: false,
   },
   {
-    title: 'Multi-Agent Copilot – LangGraph + Django',
-    description: 'Production-grade multi-agent supervisor system using LangChain, LangGraph and Django REST. Autonomous agents plan, delegate and execute complex multi-step reasoning tasks — from code generation to document synthesis — with full observability via Phoenix tracing.',
+    title: 'Agent-Based Research Assistant',
+    description: 'Full-stack multi-agent system with FastAPI backend and React frontend. Features RAG-powered retrieval and real-time source citations for research queries. Agents autonomously plan, delegate, and execute complex multi-step reasoning tasks.',
     url: 'https://github.com/shivang-7135',
     image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop',
     disable: false,
@@ -183,8 +217,8 @@ export const portfolioItems: PortfolioItem[] = [
     disable: false,
   },
   {
-    title: 'ShivyBot – Chat with Your Documents',
-    description: 'Upload any PDF or text file and get accurate, cited answers in seconds. Powered by FAISS vector search and an LLM reasoning layer, it retrieves the most relevant document chunks and synthesises answers with source attribution. Live on Streamlit Cloud.',
+    title: 'LLM Document QA System',
+    description: 'Document QA system with FAISS vector indexing, REST API layer, and generative LMs for grounded answers with source attribution. Upload any PDF or text file and get accurate, cited answers in seconds.',
     url: 'https://shivybot2.streamlit.app/',
     image: 'https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?w=600&q=80&fit=crop',
     disable: false,
@@ -197,22 +231,15 @@ export const portfolioItems: PortfolioItem[] = [
     disable: false,
   },
   {
-    title: 'Document Detailer – Semantic Q&A Engine',
-    description: 'Flask app that ingests enterprise documents, builds a FAISS index on the fly and answers natural-language queries with precise, paragraph-level citations. Reduced internal document-search time by an estimated 70% in prototype evaluations.',
-    url: 'https://github.com/shivang-7135',
-    image: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=80&fit=crop',
-    disable: false,
-  },
-  {
     title: 'AI Cover Letter Generator',
-    description: 'Drop in a job description and your resume — get a tailored, ATS-optimised cover letter in under 10 seconds. Uses prompt-chaining to match tone, keywords and role requirements. Generates higher interview callback rates compared to generic templates.',
+    description: 'Drop in a job description and your resume — get a tailored, ATS-optimised cover letter in under 10 seconds. Uses prompt-chaining to match tone, keywords and role requirements.',
     url: 'https://github.com/shivang-7135',
     image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80&fit=crop',
     disable: false,
   },
   {
     title: 'Automated Resume Screening Pipeline',
-    description: 'End-to-end NLP pipeline that parses resumes, scores them against job descriptions using semantic similarity and ranks candidates automatically. Designed to cut recruiter screening time from hours to minutes with a fully auditable scoring model.',
+    description: 'End-to-end NLP pipeline that parses resumes, scores them against job descriptions using semantic similarity and ranks candidates automatically. Designed to cut recruiter screening time from hours to minutes.',
     url: 'https://github.com/shivang-7135',
     image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80&fit=crop',
     disable: false,
@@ -220,28 +247,27 @@ export const portfolioItems: PortfolioItem[] = [
 ];
 
 /**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
+ * Resume section
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2024 – Present (Expected Feb 2026)',
+    date: 'April 2024 – March 2026',
     location: 'Trier, Germany',
-    title: 'M.Sc. Natural Language Processing (Data Science) – University of Trier',
+    title: 'M.Sc. Natural Language Processing – University of Trier',
     content: (
-      <ul className="list-disc pl-4 space-y-1">
-        <li><strong>Master's Thesis:</strong> A Comparative Study of NLP Models for Longitudinal Analysis of AI/ML Skill Requirements in the German Job Market.</li>
+      <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
+        <li><strong className="text-text-primary">Thesis:</strong> Comparative Study of NLP Models for Analysis of AI/ML Skill Demand in the German Job Market</li>
         <li>Collected and annotated 1,000+ German job postings; benchmarked BERT-based, rule-based and LLM-based skill extraction models using Precision, Recall and F1-score for longitudinal trend analysis.</li>
         <li>Hands-on experience with Python, TensorFlow, PyTorch, HuggingFace, and deep learning frameworks for text classification, sentiment analysis, and conversational AI.</li>
       </ul>
     ),
   },
   {
-    date: 'August 2016 – May 2020',
+    date: '2016 – 2020',
     location: 'Chandigarh, India',
-    title: 'B.E. Computer Science – Cloud Computing Specialization (IBM Hons) – Chandigarh University',
+    title: 'B.E. Computer Science – Chandigarh University',
     content: (
-      <ul className="list-disc pl-4 space-y-1">
-        <li>Specialization in Cloud Computing by IBM; completed projects and coursework in cloud computing, distributed systems, and software engineering.</li>
+      <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
         <li>Built strong foundations in algorithms, data structures, databases, and software engineering using Java, C++, and Python.</li>
         <li>Gained practical experience with AWS and cloud automation tools for deploying and managing scalable applications.</li>
       </ul>
@@ -253,14 +279,14 @@ export const experience: TimelineItem[] = [
   {
     date: 'November 2024 – Present',
     location: 'Munich, Germany',
-    title: 'Carl Zeiss Microscopy – Werkstudent GenAI',
+    title: 'Carl Zeiss Microscopy – Generative AI Engineer (Werkstudent)',
     content: (
-      <ul className="list-disc pl-4 space-y-1">
-        <li>Contribute to an internal Microscopy Copilot built on <strong>Azure OpenAI</strong> and <strong>LangGraph</strong>, implementing agent-based workflows that automate recurring engineering tasks across R&amp;D teams.</li>
-        <li>Engineered an AI-driven developer assistant that converts natural-language requests into executable Python scripts, surfaces relevant internal documentation, and generates C# helper functions to accelerate feature development.</li>
-        <li>Optimized document retrieval pipelines by refining indexing and query strategies, improving context relevance and reducing time engineers spend searching internal documentation.</li>
-        <li>Built <strong>RAG pipelines</strong> over documentation and source-code repositories to enable structured, context-aware code generation and troubleshooting guidance.</li>
-        <li>Orchestrated integrations of MCP-based services that streamline cross-team workflows and support the rollout of AI solutions from proof-of-concept to production.</li>
+      <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
+        <li>Designed and deployed an LLM-driven Microscopy Copilot on <strong className="text-text-primary">Azure OpenAI</strong> with <strong className="text-text-primary">LangGraph</strong>, architecting both the FastAPI backend and React frontend, reducing manual R&amp;D workflows by 25–35%</li>
+        <li>Built RAG pipelines with vector databases for intelligent retrieval across documentation and code repositories, improving query accuracy by ~40%</li>
+        <li>Developed multi-agent systems for NL-to-code translation, automating Python and C# script generation with structured validation and integration contracts</li>
+        <li>Shipped production features via MCP-based microservices with CI/CD pipelines and containerized deployments, driving cross-department adoption</li>
+        <li>Conducted code reviews and design sessions with cross-functional teams, ensuring quality, maintainability, and alignment with architectural standards</li>
       </ul>
     ),
   },
@@ -269,11 +295,12 @@ export const experience: TimelineItem[] = [
     location: 'Pune, India',
     title: 'Barclays – Senior Software Developer',
     content: (
-      <ul className="list-disc pl-4 space-y-1">
-        <li>Developed and enhanced enterprise-scale full-stack applications supporting investment banking operations for internal business stakeholders.</li>
-        <li>Designed and tuned <strong>RESTful APIs</strong> and backend services for high-volume transactional workflows with emphasis on performance, reliability, and secure data handling.</li>
-        <li>Helped implement an internal chatbot for operations teams that centralized common queries and reduced manual ticket handling effort.</li>
-        <li>Collaborated within <strong>Agile Scrum</strong> teams (6–8 engineers), participating in code reviews, sprint planning, and production releases in a regulated environment.</li>
+      <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
+        <li>Led full-stack development of enterprise web applications for investment banking, ensuring scalability and compliance with regulatory standards</li>
+        <li>Designed and delivered RESTful APIs for high-volume transactional workflows, governing integration contracts between systems and achieving <strong className="text-text-primary">99.9% production reliability</strong></li>
+        <li>Co-built an NLP chatbot with Python backend and API integrations, automating FAQ responses and reducing support tickets by 30%</li>
+        <li>Drove structured code reviews, sprint planning, and secure release processes in Agile Scrum teams of 6–8 engineers, mentoring junior developers</li>
+        <li>Collaborated with external vendor teams, reviewing deliverables and holding implementations to agreed quality standards</li>
       </ul>
     ),
   },
@@ -282,14 +309,27 @@ export const experience: TimelineItem[] = [
     location: 'Hyderabad, India',
     title: 'Hexagon CCI – Software Developer',
     content: (
-      <ul className="list-disc pl-4 space-y-1">
-        <li>Built and maintained customer-facing industrial web applications used by global manufacturing and metrology clients.</li>
-        <li>Implemented backend services and REST APIs that enabled new product capabilities and integrations across distributed systems.</li>
-        <li>Improved application stability and responsiveness in production by addressing performance bottlenecks and coordinating fixes with cross-functional teams.</li>
+      <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
+        <li>Launched customer-facing industrial web applications (frontend + backend) for manufacturing clients, serving <strong className="text-text-primary">500+ enterprise users</strong></li>
+        <li>Optimized backend services and REST APIs powering distributed systems, improving response times by 20% through query optimization and caching</li>
       </ul>
     ),
   },
 ];
+
+/**
+ * Certifications
+ */
+export const certifications = [
+  'LangChain Academy – Agentic AI (2026)',
+  'HuggingFace AI Agents Course (2026)',
+  'Microsoft AI Tour – GenAI & Azure (2025)',
+];
+
+/**
+ * AI-Assisted Dev Tools
+ */
+export const devTools = ['GitHub Copilot', 'Cursor', 'Claude Code'];
 
 /**
  * Testimonial section
@@ -300,22 +340,22 @@ export const testimonial: TestimonialSection = {
     {
       name: 'Abhishek Diwan',
       text: `Working with Shivang has been an incredible experience. His expertise in NLP and full-stack development was evident in our projects at Barclays, where he significantly improved the accuracy and efficiency of our NLP models. Shivang's proactive approach and strong collaboration skills made him an invaluable team member, consistently delivering high-quality work.`,
-      image: 'https://ui-avatars.com/api/?name=Abhishek+Diwan&size=100&background=0369a1&color=fff&rounded=true',
+      image: 'https://ui-avatars.com/api/?name=Abhishek+Diwan&size=100&background=E67E22&color=fff&rounded=true',
     },
     {
       name: 'Durga Prasad Palle',
       text: `Shivang's contribution to the Hexagon OnCall Dispatch project was outstanding. His ability to architect and manage responsive web applications, coupled with his skill in optimizing performance, greatly enhanced our product. His dedication to understanding client needs and translating them into effective solutions was impressive, showcasing his strong technical and problem-solving skills.`,
-      image: 'https://ui-avatars.com/api/?name=Durga+Prasad&size=100&background=0f766e&color=fff&rounded=true',
+      image: 'https://ui-avatars.com/api/?name=Durga+Prasad&size=100&background=1A1A1A&color=fff&rounded=true',
     },
     {
       name: 'Pooja Parakh',
       text: `Shivang is a highly skilled and dedicated IT professional. His work on deploying NLP models into production at Barclays demonstrated his deep technical knowledge and practical experience. Shivang's strong work ethic, attention to detail, and ability to work efficiently in a team make him a remarkable asset in any project or organization`,
-      image: 'https://ui-avatars.com/api/?name=Pooja+Parakh&size=100&background=7c3aed&color=fff&rounded=true',
+      image: 'https://ui-avatars.com/api/?name=Pooja+Parakh&size=100&background=6B6B6B&color=fff&rounded=true',
     },
     {
       name: 'Prarthana Mukherjee',
       text: `Working with Shivang at Barclays was a great experience. His expertise in deploying NLP models into production was instrumental in improving our system's performance. Shivang's ability to handle complex technical challenges and deliver high-quality solutions under tight deadlines was impressive. His collaborative spirit and proactive approach to problem-solving made him an invaluable team member.`,
-      image: 'https://ui-avatars.com/api/?name=Prarthana+Mukherjee&size=100&background=be185d&color=fff&rounded=true',
+      image: 'https://ui-avatars.com/api/?name=Prarthana+Mukherjee&size=100&background=D35400&color=fff&rounded=true',
     },
   ],
 };
@@ -326,26 +366,26 @@ export const testimonial: TestimonialSection = {
 
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description: 'You can reach out to me here!!',
+  description: "Let's connect! I'm always open to discussing new opportunities, AI projects, or collaboration ideas.",
   items: [
     {
       type: ContactType.Email,
-      text: 'sinhashivang35@gmail.com',
-      href: 'mailto:sinhashivang35@gmail.com',
+      text: 'shivangsinha2@gmail.com',
+      href: 'mailto:shivangsinha2@gmail.com',
     },
     {
       type: ContactType.Location,
-      text: 'Koblenz, Germany',
+      text: 'Munich, Germany',
       href: 'https://maps.app.goo.gl/WSg46QLjcow4yzuY7',
     },
     {
-      type: ContactType.Instagram,
-      text: '@shivang.sinha',
-      href: 'https://www.instagram.com/shivang.sinha',
+      type: ContactType.LinkedIn,
+      text: 'linkedin.com/in/shivang-sinha',
+      href: 'https://www.linkedin.com/in/shivang-sinha-92755012b/',
     },
     {
       type: ContactType.Github,
-      text: 'Shivang Sinha',
+      text: 'github.com/shivang-7135',
       href: 'https://github.com/shivang-7135',
     },
   ],
