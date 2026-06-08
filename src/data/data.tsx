@@ -184,67 +184,12 @@ export const skills: SkillGroup[] = [
   },
 ];
 
+import projectsData from './projects.json';
+
 /**
  * Portfolio section
  */
-export const portfolioItems: PortfolioItem[] = [
-  {
-    title: 'DailyAI – Personalised AI News App',
-    description: 'A personalised AI news platform delivering curated updates every 60 minutes with optimised read times. Features cross-device sync, personalised feeds powered by NLP-based ranking, and a modern PWA experience. Built with React, Supabase, and intelligent RSS aggregation.',
-    url: 'https://dailyai.site/',
-    image: '/images/portfolio/dailyai.png',
-    disable: false,
-  },
-  {
-    title: 'NLP Skill Extraction – M.Sc. Thesis',
-    description: 'Research-grade NLP pipeline comparing BERT fine-tuning, rule-based systems and GPT-4 for extracting AI/ML skills from 1,000+ real German job postings. Achieved state-of-the-art F1 on a custom annotated dataset, enabling longitudinal market trend analysis across 3 years of job-market data.',
-    url: 'https://github.com/shivang-7135',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&fit=crop',
-    disable: false,
-  },
-  {
-    title: 'Agent-Based Research Assistant',
-    description: 'Full-stack multi-agent system with FastAPI backend and React frontend. Features RAG-powered retrieval and real-time source citations for research queries. Agents autonomously plan, delegate, and execute complex multi-step reasoning tasks.',
-    url: 'https://github.com/shivang-7135',
-    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop',
-    disable: false,
-  },
-  {
-    title: 'Multi-Model AI Chatbot',
-    description: 'Sleek React chatbot that lets users switch between GPT-4, Claude and Gemini in real time. Features streaming responses, conversation memory and a polished UI. Handles 1,000+ messages per session with zero latency degradation. Deployed and live on Vercel.',
-    url: 'https://chatbot-phi-sandy.vercel.app/',
-    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&q=80&fit=crop',
-    disable: false,
-  },
-  {
-    title: 'LLM Document QA System',
-    description: 'Document QA system with FAISS vector indexing, REST API layer, and generative LMs for grounded answers with source attribution. Upload any PDF or text file and get accurate, cited answers in seconds.',
-    url: 'https://shivybot2.streamlit.app/',
-    image: 'https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?w=600&q=80&fit=crop',
-    disable: false,
-  },
-  {
-    title: 'AI German Language Tutor',
-    description: 'Conversational AI tutor that teaches German through adaptive dialogue, grammar correction and contextual vocabulary drills. Supports 10+ native languages as the instruction language. Used by learners across 5 countries. Deployed live on Streamlit Cloud.',
-    url: 'https://germanteacher.streamlit.app/',
-    image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&q=80&fit=crop',
-    disable: false,
-  },
-  {
-    title: 'AI Cover Letter Generator',
-    description: 'Drop in a job description and your resume — get a tailored, ATS-optimised cover letter in under 10 seconds. Uses prompt-chaining to match tone, keywords and role requirements.',
-    url: 'https://github.com/shivang-7135',
-    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80&fit=crop',
-    disable: false,
-  },
-  {
-    title: 'Automated Resume Screening Pipeline',
-    description: 'End-to-end NLP pipeline that parses resumes, scores them against job descriptions using semantic similarity and ranks candidates automatically. Designed to cut recruiter screening time from hours to minutes.',
-    url: 'https://github.com/shivang-7135',
-    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80&fit=crop',
-    disable: false,
-  },
-];
+export const portfolioItems: PortfolioItem[] = projectsData as PortfolioItem[];
 
 /**
  * Resume section
