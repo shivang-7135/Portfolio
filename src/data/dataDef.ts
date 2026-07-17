@@ -74,14 +74,47 @@ export interface SkillGroup {
 }
 
 /**
+ * Current Status section
+ */
+export interface CurrentStatus {
+  statusText: string;
+  statusEmoji: string;
+  stats: StatusStat[];
+  availabilityText: string;
+}
+
+export interface StatusStat {
+  label: string;
+  value: string;
+}
+
+/**
  * Portfolio section
  */
+export interface ProjectMetric {
+  label: string;
+  value: string;
+}
+
+export interface ProjectOutput {
+  label: string;
+  url: string;
+  type: 'report' | 'demo' | 'screenshot' | 'link';
+}
+
 export interface PortfolioItem {
   title: string;
   description: string;
   url: string;
   image: string | StaticImageData;
-  disable:boolean;
+  disable: boolean;
+  featured?: boolean;
+  metrics?: ProjectMetric[];
+  techStack?: string[];
+  outputs?: ProjectOutput[];
+  reportUrl?: string;
+  demoUrl?: string;
+  sourceUrl?: string;
 }
 
 /**

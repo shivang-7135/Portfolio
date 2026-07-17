@@ -19,6 +19,7 @@ import {
   About,
   ContactSection,
   ContactType,
+  CurrentStatus,
   Hero,
   HomepageMeta,
   PortfolioItem,
@@ -34,7 +35,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
   title: 'Shivang Sinha – AI Full Stack Engineer',
-  description: 'AI Full Stack Engineer with 5+ years delivering production-grade applications end-to-end — Python/FastAPI backends, React/TypeScript frontends, and REST API architectures. Currently building LLM-powered systems at Carl Zeiss. M.Sc. NLP (University of Trier, thesis completed). Available full-time from March 2026.',
+  description: 'AI Full Stack Engineer with 5+ years delivering production-grade applications end-to-end — Python/FastAPI backends, React/TypeScript frontends, and REST API architectures. Built LLM-powered Copilot at Carl Zeiss. M.Sc. NLP (University of Trier, thesis completed). Currently available for full-time roles.',
 };
 
 /**
@@ -42,6 +43,7 @@ export const homePageMeta: HomepageMeta = {
  */
 export const SectionId = {
   Hero: 'hero',
+  CurrentStatus: 'current-status',
   About: 'about',
   Contact: 'contact',
   Portfolio: 'portfolio',
@@ -67,7 +69,7 @@ export const heroData: Hero = {
         M.Sc. in <strong className="text-text-primary">Natural Language Processing</strong> — University of Trier.
       </p>
       <p className="text-sm text-text-muted sm:text-base font-body mt-2">
-        Available for full-time roles from <strong className="text-accent">March 2026</strong> · Munich, Germany
+        <strong className="text-accent">Currently available</strong> for full-time roles · Munich, Germany
       </p>
     </>
   ),
@@ -91,15 +93,30 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `AI Full Stack Engineer with 5+ years delivering production-grade applications end-to-end — Python/FastAPI backends, React/TypeScript frontends, and REST API architectures in enterprise-regulated environments. Currently building an LLM-powered Copilot at Carl Zeiss on Azure; previously shipped high-reliability transactional systems at Barclays (99.9% uptime) and industrial platforms at Hexagon (500+ users). Combines deep AI/ML expertise (RAG, multi-agent systems, LLM orchestration) with strong DevSecOps practices across Docker, CI/CD, and Azure. Proven track record leading code reviews, collaborating with vendor teams, and driving AI-assisted development adoption. M.Sc. in NLP (University of Trier, thesis completed).`,
+  description: `AI Full Stack Engineer with 5+ years delivering production-grade applications end-to-end — Python/FastAPI backends, React/TypeScript frontends, and REST API architectures in enterprise-regulated environments. Built an LLM-powered Microscopy Copilot at Carl Zeiss on Azure; previously shipped high-reliability transactional systems at Barclays (99.9% uptime) and industrial platforms at Hexagon (500+ users). Combines deep AI/ML expertise (RAG, multi-agent systems, LLM orchestration) with strong DevSecOps practices across Docker, CI/CD, and Azure. Proven track record leading code reviews, collaborating with vendor teams, and driving AI-assisted development adoption. M.Sc. in NLP (University of Trier, thesis completed).`,
   aboutItems: [
     {label: 'Location', text: 'Munich, Germany', Icon: MapIcon},
     {label: 'Age', text: '28', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Indian', Icon: FlagIcon},
     {label: 'Interests', text: 'AI, Badminton & Cricket', Icon: SparklesIcon},
     {label: 'Study', text: 'M.Sc. NLP – University of Trier', Icon: AcademicCapIcon},
-    {label: 'Availability', text: 'Full-time from March 2026', Icon: BriefcaseIcon},
+    {label: 'Availability', text: 'Currently available for full-time roles', Icon: BriefcaseIcon},
   ],
+};
+
+/**
+ * Current Status section
+ */
+export const currentStatus: CurrentStatus = {
+  statusText: 'Open to new opportunities in AI/ML & Full-Stack Engineering',
+  statusEmoji: '🟢',
+  stats: [
+    {label: 'Years Experience', value: '5+'},
+    {label: 'Companies', value: '3'},
+    {label: 'Projects Shipped', value: '9+'},
+    {label: 'Degree', value: 'M.Sc. NLP'},
+  ],
+  availabilityText: 'Currently available for full-time roles · Munich, Germany',
 };
 
 /**
@@ -222,7 +239,7 @@ export const education: TimelineItem[] = [
 
 export const experience: TimelineItem[] = [
   {
-    date: 'November 2024 – Present',
+    date: 'November 2024 – April 2026',
     location: 'Munich, Germany',
     title: 'Carl Zeiss Microscopy – Generative AI Engineer (Werkstudent)',
     content: (

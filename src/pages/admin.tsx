@@ -7,6 +7,12 @@ interface Project {
   url: string;
   image: string;
   disable: boolean;
+  featured?: boolean;
+  metrics?: {label: string; value: string}[];
+  techStack?: string[];
+  reportUrl?: string;
+  demoUrl?: string;
+  sourceUrl?: string;
 }
 
 const GITHUB_REPO = 'shivang-7135/Portfolio';
@@ -21,6 +27,37 @@ function b64_to_utf8(str: string) {
   return decodeURIComponent(escape(window.atob(str)));
 }
 
+const uploadImageToGitHub = async (pat: string, filename: string, base64Content: string): Promise<string> => {
+  const path = `public/images/portfolio/${filename}`;
+  // First check if file exists to get SHA
+  let sha = '';
+  try {
+    const checkRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`, {
+      headers: { Authorization: `token ${pat}`, Accept: 'application/vnd.github.v3+json' },
+    });
+    if (checkRes.ok) {
+      const checkData = await checkRes.json();
+      sha = checkData.sha;
+    }
+  } catch {}
+  
+  const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `token ${pat}`,
+      Accept: 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      message: `Upload project image: ${filename}`,
+      content: base64Content,
+      ...(sha ? { sha } : {}),
+    }),
+  });
+  if (!res.ok) throw new Error('Failed to upload image');
+  return `/images/portfolio/${filename}`;
+};
+
 export default function AdminPage() {
   const [token, setToken] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,6 +67,7 @@ export default function AdminPage() {
 
   const [projects, setProjects] = useState<Project[]>([]);
   const [fileSha, setFileSha] = useState('');
+  const [uploadingImage, setUploadingImage] = useState<Record<number, boolean>>({});
 
   // Check for saved token on load
   useEffect(() => {
@@ -137,7 +175,7 @@ export default function AdminPage() {
 
   const handleAdd = () => {
     setProjects([
-      {title: '', description: '', url: '', image: '', disable: false},
+      {title: '', description: '', url: '', image: '', disable: false, featured: false, metrics: [], techStack: [], reportUrl: '', demoUrl: '', sourceUrl: ''},
       ...projects,
     ]);
   };
@@ -147,6 +185,53 @@ export default function AdminPage() {
     setToken('');
     setIsLoggedIn(false);
     setProjects([]);
+  };
+
+  const handleFileUpload = async (idx: number, file: File) => {
+    if (!file.type.startsWith('image/')) {
+      setError('Please upload an image file');
+      return;
+    }
+    
+    setUploadingImage(prev => ({...prev, [idx]: true}));
+    try {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const result = e.target?.result as string;
+        if (!result) return;
+        
+        // Remove data URL prefix (e.g., data:image/png;base64,)
+        const base64Content = result.split(',')[1];
+        const filename = `project-${idx}-${Date.now()}.${file.name.split('.').pop() || 'png'}`;
+        
+        try {
+          const newUrl = await uploadImageToGitHub(token, filename, base64Content);
+          handleChange(idx, 'image', newUrl);
+          setSuccess('Image uploaded successfully');
+          setTimeout(() => setSuccess(''), 3000);
+        } catch (err: any) {
+          setError(err.message || 'Failed to upload image');
+        } finally {
+          setUploadingImage(prev => ({...prev, [idx]: false}));
+        }
+      };
+      reader.readAsDataURL(file);
+    } catch (err) {
+      setUploadingImage(prev => ({...prev, [idx]: false}));
+    }
+  };
+
+  const handlePaste = (idx: number, e: React.ClipboardEvent) => {
+    const items = e.clipboardData.items;
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].type.indexOf('image') !== -1) {
+        const file = items[i].getAsFile();
+        if (file) {
+          handleFileUpload(idx, file);
+        }
+        break;
+      }
+    }
   };
 
   if (!isLoggedIn) {
@@ -203,14 +288,16 @@ export default function AdminPage() {
         </div>
 
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6 grow">
-            <strong>Error!</strong> {error}
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6 flex justify-between">
+            <span><strong>Error!</strong> {error}</span>
+            <button onClick={() => setError('')} className="text-red-700 font-bold">✕</button>
           </div>
         )}
         
         {success && (
-          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6 grow">
-            <strong>Success!</strong> {success}
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6 flex justify-between">
+            <span><strong>Success!</strong> {success}</span>
+            <button onClick={() => setSuccess('')} className="text-green-700 font-bold">✕</button>
           </div>
         )}
 
@@ -268,28 +355,161 @@ export default function AdminPage() {
                   </div>
 
                   <div>
-                     <label className="block text-sm font-medium text-gray-700 mb-1">Image Source (URL or Path)</label>
+                     <label className="block text-sm font-medium text-gray-700 mb-1">Demo URL</label>
                      <input
                        className="w-full text-black border border-gray-300 p-2 rounded outline-none focus:border-orange-500"
-                       onChange={(e) => handleChange(idx, 'image', e.target.value)}
-                       value={project.image}
+                       onChange={(e) => handleChange(idx, 'demoUrl', e.target.value)}
+                       value={project.demoUrl || ''}
                      />
-                     {project.image && (
-                       <img alt="preview" className="mt-2 h-16 object-cover rounded border" src={project.image} />
-                     )}
+                  </div>
+
+                  <div>
+                     <label className="block text-sm font-medium text-gray-700 mb-1">Source URL</label>
+                     <input
+                       className="w-full text-black border border-gray-300 p-2 rounded outline-none focus:border-orange-500"
+                       onChange={(e) => handleChange(idx, 'sourceUrl', e.target.value)}
+                       value={project.sourceUrl || ''}
+                     />
+                  </div>
+
+                  <div>
+                     <label className="block text-sm font-medium text-gray-700 mb-1">Report URL</label>
+                     <input
+                       className="w-full text-black border border-gray-300 p-2 rounded outline-none focus:border-orange-500"
+                       onChange={(e) => handleChange(idx, 'reportUrl', e.target.value)}
+                       value={project.reportUrl || ''}
+                     />
+                  </div>
+
+                  <div className="col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Tech Stack (comma separated)</label>
+                    <input
+                      className="w-full text-black border border-gray-300 p-2 rounded outline-none focus:border-orange-500"
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        handleChange(idx, 'techStack', val ? val.split(',').map(s => s.trim()).filter(Boolean) : []);
+                      }}
+                      value={project.techStack?.join(', ') || ''}
+                    />
+                  </div>
+
+                  <div className="col-span-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Metrics</label>
+                    <div className="space-y-2">
+                      {(project.metrics || []).map((m, mIdx) => (
+                        <div key={mIdx} className="flex gap-2 items-center">
+                          <input
+                            placeholder="Label (e.g. Conversion)"
+                            className="flex-1 text-black border border-gray-300 p-2 rounded outline-none focus:border-orange-500 text-sm"
+                            value={m.label}
+                            onChange={(e) => {
+                              const newMetrics = [...(project.metrics || [])];
+                              newMetrics[mIdx] = {...newMetrics[mIdx], label: e.target.value};
+                              handleChange(idx, 'metrics', newMetrics);
+                            }}
+                          />
+                          <input
+                            placeholder="Value (e.g. +20%)"
+                            className="flex-1 text-black border border-gray-300 p-2 rounded outline-none focus:border-orange-500 text-sm"
+                            value={m.value}
+                            onChange={(e) => {
+                              const newMetrics = [...(project.metrics || [])];
+                              newMetrics[mIdx] = {...newMetrics[mIdx], value: e.target.value};
+                              handleChange(idx, 'metrics', newMetrics);
+                            }}
+                          />
+                          <button
+                            className="text-red-500 hover:text-red-700 font-bold px-2"
+                            onClick={() => {
+                              const newMetrics = (project.metrics || []).filter((_, i) => i !== mIdx);
+                              handleChange(idx, 'metrics', newMetrics);
+                            }}
+                          >
+                            ✕
+                          </button>
+                        </div>
+                      ))}
+                      <button
+                        className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+                        onClick={() => {
+                          const newMetrics = [...(project.metrics || []), {label: '', value: ''}];
+                          handleChange(idx, 'metrics', newMetrics);
+                        }}
+                      >
+                        + Add Metric
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="col-span-2 mt-2">
+                    <div
+                      className="border-2 border-dashed border-gray-300 rounded p-4 text-center hover:bg-gray-50 transition relative"
+                      onPaste={(e) => handlePaste(idx, e)}
+                    >
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Image Upload (Select or Paste)
+                      </label>
+                      <div className="flex items-center gap-2 mb-2">
+                        <input
+                          className="flex-1 text-black border border-gray-300 p-2 rounded outline-none focus:border-orange-500 text-sm"
+                          onChange={(e) => handleChange(idx, 'image', e.target.value)}
+                          value={project.image}
+                          placeholder="Image URL or Path"
+                        />
+                        <label className="bg-orange-100 hover:bg-orange-200 text-orange-700 cursor-pointer py-2 px-3 rounded text-sm font-medium transition whitespace-nowrap">
+                          Upload File
+                          <input 
+                            type="file" 
+                            className="hidden" 
+                            accept="image/*"
+                            onChange={(e) => e.target.files?.[0] && handleFileUpload(idx, e.target.files[0])}
+                          />
+                        </label>
+                      </div>
+                      <p className="text-xs text-gray-500 mb-2">Or click here and press Ctrl+V / Cmd+V to paste an image</p>
+                      
+                      {uploadingImage[idx] && <p className="text-sm text-orange-600 font-semibold mb-2">Uploading...</p>}
+
+                      {project.image && (
+                        <div className="relative inline-block mt-2">
+                          <img alt="preview" className="max-h-48 object-contain rounded border shadow-sm" src={project.image} />
+                          <button
+                            className="absolute top-1 right-1 bg-red-500 hover:bg-red-600 text-white rounded-full p-1 shadow-md"
+                            onClick={() => handleChange(idx, 'image', '')}
+                            title="Clear image"
+                          >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
                   
-                  <div className="col-span-2 flex items-center mt-2">
-                    <input
-                      checked={project.disable}
-                      className="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded"
-                      id={`disable-${idx}`}
-                      onChange={(e) => handleChange(idx, 'disable', e.target.checked)}
-                      type="checkbox"
-                    />
-                    <label className="ml-2 block text-sm text-gray-900" htmlFor={`disable-${idx}`}>
-                      Disable (Hide from portfolio)
-                    </label>
+                  <div className="col-span-2 flex flex-wrap items-center gap-6 mt-4">
+                    <div className="flex items-center">
+                      <input
+                        checked={project.disable}
+                        className="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded"
+                        id={`disable-${idx}`}
+                        onChange={(e) => handleChange(idx, 'disable', e.target.checked)}
+                        type="checkbox"
+                      />
+                      <label className="ml-2 block text-sm font-medium text-gray-900" htmlFor={`disable-${idx}`}>
+                        Disable (Hide from portfolio)
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        checked={!!project.featured}
+                        className="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded"
+                        id={`featured-${idx}`}
+                        onChange={(e) => handleChange(idx, 'featured', e.target.checked)}
+                        type="checkbox"
+                      />
+                      <label className="ml-2 block text-sm font-medium text-gray-900" htmlFor={`featured-${idx}`}>
+                        Featured Project
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
