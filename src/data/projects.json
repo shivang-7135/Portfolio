@@ -3,18 +3,41 @@
     "title": "Lensr — Intent-Aware Multi-Agent Search Engine",
     "description": "Built Lensr, an AI search application that routes user queries to specialized agents for shopping, trip planning, price history, captions, and other decision-focused tasks. Developed the app with TanStack Start, LangGraph, and AWS Bedrock to return one structured, opinionated answer instead of traditional search-result links.",
     "url": "https://lensr-shivang.lovable.app",
-    "image": "",
+    "image": "/images/portfolio/project-0-1784320790206.png",
     "disable": false,
     "featured": true,
     "metrics": [
-      {"label": "Agent Types", "value": "6+"},
-      {"label": "Query Routing", "value": "Intent-aware"},
-      {"label": "Response Format", "value": "Structured"}
+      {
+        "label": "Agent Types",
+        "value": "6+"
+      },
+      {
+        "label": "Query Routing",
+        "value": "Intent-aware"
+      },
+      {
+        "label": "Response Format",
+        "value": "Structured"
+      }
     ],
-    "techStack": ["TanStack Start", "LangGraph", "AWS Bedrock", "TypeScript", "Multi-Agent"],
+    "techStack": [
+      "TanStack Start",
+      "LangGraph",
+      "AWS Bedrock",
+      "TypeScript",
+      "Multi-Agent"
+    ],
     "outputs": [
-      {"label": "Arize Phoenix Traces", "url": "https://app.phoenix.arize.com/s/shivangsinha2/projects/UHJvamVjdDoz/spans?timeRangeKey=7d", "type": "report"},
-      {"label": "Span Details", "url": "https://app.phoenix.arize.com/s/shivangsinha2/projects/UHJvamVjdDoz/spans/b56c27d17ac079cd44f532ca2cb03715?timeRangeKey=7d&selectedSpanNodeId=U3BhbjoyNzgx", "type": "report"}
+      {
+        "label": "Arize Phoenix Traces",
+        "url": "https://app.phoenix.arize.com/s/shivangsinha2/projects/UHJvamVjdDoz/spans?timeRangeKey=7d",
+        "type": "report"
+      },
+      {
+        "label": "Span Details",
+        "url": "https://app.phoenix.arize.com/s/shivangsinha2/projects/UHJvamVjdDoz/spans/b56c27d17ac079cd44f532ca2cb03715?timeRangeKey=7d&selectedSpanNodeId=U3BhbjoyNzgx",
+        "type": "report"
+      }
     ],
     "reportUrl": "https://app.phoenix.arize.com/s/shivangsinha2/projects/UHJvamVjdDoz/spans?timeRangeKey=7d",
     "demoUrl": "https://lensr-shivang.lovable.app",
@@ -28,11 +51,26 @@
     "disable": false,
     "featured": true,
     "metrics": [
-      {"label": "Refresh Cycle", "value": "60 min"},
-      {"label": "Cross-Device", "value": "Synced"},
-      {"label": "Architecture", "value": "PWA"}
+      {
+        "label": "Refresh Cycle",
+        "value": "60 min"
+      },
+      {
+        "label": "Cross-Device",
+        "value": "Synced"
+      },
+      {
+        "label": "Architecture",
+        "value": "PWA"
+      }
     ],
-    "techStack": ["React", "Supabase", "NLP", "RSS", "PWA"],
+    "techStack": [
+      "React",
+      "Supabase",
+      "NLP",
+      "RSS",
+      "PWA"
+    ],
     "demoUrl": "https://dailyai.site/"
   },
   {
@@ -42,11 +80,27 @@
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&fit=crop",
     "disable": false,
     "metrics": [
-      {"label": "Dataset", "value": "1,000+ posts"},
-      {"label": "Models Compared", "value": "3"},
-      {"label": "Trend Span", "value": "3 years"}
+      {
+        "label": "Dataset",
+        "value": "1,000+ posts"
+      },
+      {
+        "label": "Models Compared",
+        "value": "3"
+      },
+      {
+        "label": "Trend Span",
+        "value": "3 years"
+      }
     ],
-    "techStack": ["BERT", "GPT-4", "spaCy", "HuggingFace", "Python", "PyTorch"],
+    "techStack": [
+      "BERT",
+      "GPT-4",
+      "spaCy",
+      "HuggingFace",
+      "Python",
+      "PyTorch"
+    ],
     "sourceUrl": "https://github.com/shivang-7135"
   },
   {
@@ -56,11 +110,26 @@
     "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop",
     "disable": false,
     "metrics": [
-      {"label": "Architecture", "value": "Multi-Agent"},
-      {"label": "Retrieval", "value": "RAG"},
-      {"label": "Citations", "value": "Real-time"}
+      {
+        "label": "Architecture",
+        "value": "Multi-Agent"
+      },
+      {
+        "label": "Retrieval",
+        "value": "RAG"
+      },
+      {
+        "label": "Citations",
+        "value": "Real-time"
+      }
     ],
-    "techStack": ["FastAPI", "React", "LangChain", "RAG", "FAISS"],
+    "techStack": [
+      "FastAPI",
+      "React",
+      "LangChain",
+      "RAG",
+      "FAISS"
+    ],
     "sourceUrl": "https://github.com/shivang-7135"
   },
   {
@@ -70,11 +139,27 @@
     "image": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&q=80&fit=crop",
     "disable": false,
     "metrics": [
-      {"label": "Models", "value": "3"},
-      {"label": "Messages/Session", "value": "1,000+"},
-      {"label": "Latency Drop", "value": "0%"}
+      {
+        "label": "Models",
+        "value": "3"
+      },
+      {
+        "label": "Messages/Session",
+        "value": "1,000+"
+      },
+      {
+        "label": "Latency Drop",
+        "value": "0%"
+      }
     ],
-    "techStack": ["React", "GPT-4", "Claude", "Gemini", "Vercel", "Streaming"],
+    "techStack": [
+      "React",
+      "GPT-4",
+      "Claude",
+      "Gemini",
+      "Vercel",
+      "Streaming"
+    ],
     "demoUrl": "https://chatbot-phi-sandy.vercel.app/"
   },
   {
@@ -84,11 +169,26 @@
     "image": "https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?w=600&q=80&fit=crop",
     "disable": false,
     "metrics": [
-      {"label": "Indexing", "value": "FAISS"},
-      {"label": "Formats", "value": "PDF, TXT"},
-      {"label": "Answers", "value": "Cited"}
+      {
+        "label": "Indexing",
+        "value": "FAISS"
+      },
+      {
+        "label": "Formats",
+        "value": "PDF, TXT"
+      },
+      {
+        "label": "Answers",
+        "value": "Cited"
+      }
     ],
-    "techStack": ["FAISS", "Streamlit", "LangChain", "Python", "REST API"],
+    "techStack": [
+      "FAISS",
+      "Streamlit",
+      "LangChain",
+      "Python",
+      "REST API"
+    ],
     "demoUrl": "https://shivybot2.streamlit.app/"
   },
   {
@@ -98,11 +198,25 @@
     "image": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&q=80&fit=crop",
     "disable": false,
     "metrics": [
-      {"label": "Languages", "value": "10+"},
-      {"label": "Countries", "value": "5"},
-      {"label": "Mode", "value": "Adaptive"}
+      {
+        "label": "Languages",
+        "value": "10+"
+      },
+      {
+        "label": "Countries",
+        "value": "5"
+      },
+      {
+        "label": "Mode",
+        "value": "Adaptive"
+      }
     ],
-    "techStack": ["Streamlit", "GPT-4", "Python", "NLP"],
+    "techStack": [
+      "Streamlit",
+      "GPT-4",
+      "Python",
+      "NLP"
+    ],
     "demoUrl": "https://germanteacher.streamlit.app/"
   },
   {
@@ -112,11 +226,24 @@
     "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80&fit=crop",
     "disable": false,
     "metrics": [
-      {"label": "Generation", "value": "<10s"},
-      {"label": "Strategy", "value": "Prompt Chain"},
-      {"label": "Output", "value": "ATS-Ready"}
+      {
+        "label": "Generation",
+        "value": "<10s"
+      },
+      {
+        "label": "Strategy",
+        "value": "Prompt Chain"
+      },
+      {
+        "label": "Output",
+        "value": "ATS-Ready"
+      }
     ],
-    "techStack": ["Python", "GPT-4", "Prompt Engineering"],
+    "techStack": [
+      "Python",
+      "GPT-4",
+      "Prompt Engineering"
+    ],
     "sourceUrl": "https://github.com/shivang-7135"
   },
   {
@@ -126,11 +253,25 @@
     "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80&fit=crop",
     "disable": false,
     "metrics": [
-      {"label": "Scoring", "value": "Semantic"},
-      {"label": "Speed", "value": "Hrs→Min"},
-      {"label": "Pipeline", "value": "End-to-end"}
+      {
+        "label": "Scoring",
+        "value": "Semantic"
+      },
+      {
+        "label": "Speed",
+        "value": "Hrs→Min"
+      },
+      {
+        "label": "Pipeline",
+        "value": "End-to-end"
+      }
     ],
-    "techStack": ["Python", "NLP", "Semantic Similarity", "spaCy"],
+    "techStack": [
+      "Python",
+      "NLP",
+      "Semantic Similarity",
+      "spaCy"
+    ],
     "sourceUrl": "https://github.com/shivang-7135"
   }
 ]
