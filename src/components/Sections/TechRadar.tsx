@@ -331,9 +331,9 @@ const TechRadar: FC = memo(() => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.3, type: 'spring', bounce: 0.4 }}
-              className="card-float group flex flex-col items-center justify-center p-8 bg-white border border-slate-100/50"
+              className="bg-white shadow-card rounded-3xl p-6 border border-gray-100/50 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center"
             >
-              <div className={`text-slate-400 transition-colors duration-300 ${tech.colorClass}`}>
+              <div className={`text-slate-500 transition-colors duration-300 ${tech.colorClass}`}>
                 {tech.icon}
               </div>
               <span className="font-heading font-medium text-slate-700 text-center">

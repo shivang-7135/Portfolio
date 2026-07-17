@@ -13,18 +13,18 @@ export const SkillsSection: FC = memo(() => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ delay: catIndex * 0.1, type: 'spring' }}
-          className="card-float p-5"
+          className="bg-white shadow-card rounded-3xl p-6 border border-gray-100/50 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
         >
-          <h4 className="font-heading text-sm font-bold text-text-primary mb-3 uppercase tracking-wider">
+          <h4 className="font-heading text-sm font-bold text-text-primary mb-4 uppercase tracking-wider">
             {name}
           </h4>
           <div className="flex flex-wrap gap-2">
             {skillItems.map(({name: skillName}) => (
               <motion.span 
-                whileHover={{ scale: 1.1, y: -2 }}
+                whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.95 }}
                 key={skillName} 
-                className="pill text-xs cursor-pointer"
+                className="pill text-xs cursor-pointer bg-gray-50 border-gray-100"
               >
                 {skillName}
               </motion.span>
