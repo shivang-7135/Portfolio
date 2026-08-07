@@ -66,13 +66,13 @@ const Testimonials: FC = memo(() => {
         className="flex flex-col gap-y-12"
       >
         <div>
-          <h2 className="section-label mb-4">*/ Endorsements</h2>
+          <h2 className="section-label mb-4">Endorsements</h2>
           <h3 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-6">
             Trusted by colleagues & collaborators
           </h3>
         </div>
 
-        <div className="card-float p-8 md:p-14 rounded-5xl border border-gray-100 bg-surface">
+        <div className="card-float p-8 md:p-14 rounded-5xl bg-surface">
           <div
             className="no-scrollbar flex w-full touch-pan-x snap-x snap-mandatory gap-x-6 overflow-x-auto scroll-smooth"
             onScroll={handleScroll}
@@ -92,7 +92,7 @@ const Testimonials: FC = memo(() => {
               return (
                 <button
                   className={`h-2.5 w-2.5 rounded-full transition-all duration-500 ${
-                    isActive ? 'bg-accent scale-125' : 'bg-bg-alt hover:bg-text-muted'
+                    isActive ? 'bg-accent scale-125' : 'bg-white/15 hover:bg-text-muted'
                   }`}
                   disabled={isActive}
                   key={`select-button-${index}`}

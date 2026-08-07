@@ -13,7 +13,7 @@ export const SkillsSection: FC = memo(() => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ delay: catIndex * 0.1, type: 'spring' }}
-          className="bg-white shadow-card rounded-3xl p-6 border border-gray-100/50 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
+          className="bg-surface/80 shadow-card rounded-3xl p-6 border border-white/10 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
         >
           <h4 className="font-heading text-sm font-bold text-text-primary mb-4 uppercase tracking-wider">
             {name}
@@ -24,7 +24,7 @@ export const SkillsSection: FC = memo(() => {
                 whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.95 }}
                 key={skillName} 
-                className="pill text-xs cursor-pointer bg-gray-50 border-gray-100"
+                className="pill text-xs cursor-pointer"
               >
                 {skillName}
               </motion.span>

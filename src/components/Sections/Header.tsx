@@ -38,9 +38,11 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }}
-        className="fixed bottom-8 inset-x-0 mx-auto w-max z-50 hidden sm:block"
+        className="fixed top-5 inset-x-0 mx-auto w-[calc(100%-2rem)] max-w-5xl z-50 hidden sm:block"
         id={headerID}>
-        <nav className="bg-white/60 backdrop-blur-2xl rounded-full px-4 py-3 shadow-lg shadow-black/5 flex justify-center items-center gap-x-2 border border-white/40">
+        <nav className="glass rounded-full px-3 py-2.5 shadow-dock flex justify-between items-center gap-x-2">
+          <a className="px-3 font-heading text-sm font-bold tracking-tight text-text-primary" href="#hero">SS<span className="text-accent">.</span></a>
+          <div className="flex items-center gap-x-1">
           {navSections.map(section => {
             const isActive = section === currentSection;
             const isContact = section === SectionId.Contact;
@@ -50,7 +52,7 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
                 <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }} key={section} className="pl-2">
                   <Link
                     href={`/#${section}`}
-                    className="px-6 py-2.5 rounded-full text-sm font-semibold font-body bg-text-primary text-white hover:bg-accent transition-colors duration-300 shadow-md">
+                    className="px-5 py-2.5 rounded-full text-sm font-semibold font-body bg-accent text-black hover:bg-accent-hover transition-colors duration-300 shadow-glow">
                     <span className="first-letter:uppercase">{section}</span>
                   </Link>
                 </motion.div>
@@ -61,22 +63,15 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
               <Link
                 className={classNames(
                   'relative px-5 py-2 rounded-full text-sm font-medium font-body transition-colors duration-300',
-                  isActive ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary',
+                  isActive ? 'text-text-primary bg-white/10' : 'text-text-secondary hover:text-text-primary',
                 )}
                 href={`/#${section}`}
                 key={section}>
                 <span className="first-letter:uppercase">{section}</span>
-                {/* Active Indicator Dot */}
-                {isActive && (
-                  <motion.div 
-                    layoutId="active-nav-dot"
-                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-accent"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  />
-                )}
               </Link>
             );
           })}
+          </div>
         </nav>
       </motion.header>
     );
@@ -98,7 +93,7 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 0.5 }}
           aria-label="Menu Button"
-          className="fixed right-6 bottom-6 z-50 rounded-full bg-white/80 backdrop-blur-xl border border-white p-4 shadow-xl hover:bg-white transition-colors duration-300 sm:hidden"
+          className="fixed right-5 top-5 z-50 rounded-full glass p-4 shadow-xl hover:bg-white/10 transition-colors duration-300 sm:hidden"
           onClick={toggleOpen}>
           <Bars3BottomRightIcon className="h-6 w-6 text-text-primary" />
           <span className="sr-only">Open menu</span>
@@ -113,7 +108,7 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
               leave="transition-opacity ease-linear duration-300"
               leaveFrom="opacity-100"
               leaveTo="opacity-0">
-              <Dialog.Overlay className="fixed inset-0 bg-white/60 backdrop-blur-md" />
+              <Dialog.Overlay className="fixed inset-0 bg-black/70 backdrop-blur-md" />
             </Transition.Child>
             <Transition.Child
               as={Fragment}
@@ -123,10 +118,10 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
               leave="transition ease-in-out duration-300 transform"
               leaveFrom="translate-y-0"
               leaveTo="translate-y-full">
-              <div className="fixed bottom-0 inset-x-0 bg-surface rounded-t-[40px] p-8 pb-12 shadow-2xl border-t border-gray-100">
+              <div className="fixed bottom-0 inset-x-0 bg-surface rounded-t-[40px] p-8 pb-12 shadow-2xl border-t border-white/10">
                 <div className="flex justify-between items-center mb-8">
                   <span className="font-heading font-bold text-xl text-text-primary">Menu</span>
-                  <button onClick={toggleOpen} className="p-2 rounded-full hover:bg-bg transition-colors">
+                  <button onClick={toggleOpen} className="p-2 rounded-full hover:bg-white/10 transition-colors">
                     <XMarkIcon className="h-6 w-6 text-text-secondary" />
                   </button>
                 </div>
@@ -139,10 +134,10 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
                         className={classNames(
                           'px-5 py-4 rounded-3xl text-lg font-medium font-body transition-all duration-300 first-letter:uppercase relative',
                           isContact
-                            ? 'bg-text-primary text-white text-center font-bold mt-4 shadow-md'
+                            ? 'bg-accent text-black text-center font-bold mt-4 shadow-glow'
                             : isActive
-                              ? 'bg-bg text-text-primary'
-                              : 'text-text-secondary hover:bg-bg hover:text-text-primary',
+                              ? 'bg-white/10 text-text-primary'
+                              : 'text-text-secondary hover:bg-white/10 hover:text-text-primary',
                         )}
                         href={`/#${section}`}
                         key={section}

@@ -15,13 +15,13 @@ const TimelineItem: FC<{item: TimelineItemType, index: number}> = memo(({item, i
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      className={`card-float p-8 md:p-10 w-full rounded-5xl border border-gray-100 shadow-md sticky bg-surface`}
+      className={`card-float p-8 md:p-10 w-full rounded-5xl shadow-md sticky bg-surface`}
       style={{ top: `${topOffset}px`, zIndex: index }}
     >
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-y-4">
         <h4 className="font-heading text-2xl font-bold text-text-primary">{title}</h4>
         
-        <div className="flex items-center gap-x-3 shrink-0 bg-bg px-4 py-2 rounded-full">
+        <div className="flex items-center gap-x-3 shrink-0 bg-white/5 px-4 py-2 rounded-full border border-white/10">
           <span className="text-xs font-semibold text-accent font-body uppercase tracking-wider">{date}</span>
         </div>
       </div>

@@ -26,7 +26,7 @@ const Portfolio: FC = memo(() => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, type: 'spring' }}
         >
-          <h2 className="section-label mb-4">✦ Portfolio</h2>
+          <h2 className="section-label mb-4">Selected work</h2>
           <h3 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-6">
             Selected Work
           </h3>
@@ -91,11 +91,11 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="group card-float bg-surface shadow-card hover:shadow-card-hover transition-shadow duration-300 overflow-hidden p-4 md:p-6 pb-8 border border-gray-100 flex flex-col gap-y-6"
+      className="group card-float bg-surface shadow-card hover:shadow-card-hover transition-shadow duration-300 overflow-hidden p-3 md:p-4 pb-7 flex flex-col gap-y-6"
     >
       {/* Image */}
       <div 
-        className="relative h-64 md:h-80 overflow-hidden rounded-4xl bg-gray-100"
+        className="relative h-64 md:h-80 overflow-hidden rounded-3xl bg-white/5"
         style={{ transform: "translateZ(30px)" }} // Pop out effect
       >
         {image ? (
@@ -107,7 +107,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
             width={600}
           />
         ) : (
-          <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-orange-100 to-orange-50 transition-transform duration-700 group-hover:scale-110">
+          <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-violet-700 to-surface transition-transform duration-700 group-hover:scale-110">
             <span className="text-6xl font-heading font-bold text-accent opacity-50">
               {title.charAt(0)}
             </span>
@@ -119,7 +119,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
         {/* Featured Badge */}
         {featured && (
           <div className="absolute top-4 left-4">
-            <span className="pill bg-accent text-white px-3 py-1 text-xs font-semibold shadow-sm">
+            <span className="pill bg-accent text-black px-3 py-1 text-xs font-semibold shadow-sm">
               Featured
             </span>
           </div>
@@ -159,7 +159,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
         {techStack && techStack.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-6">
             {techStack.map((tech, i) => (
-              <span key={i} className="bg-bg text-text-secondary text-xs px-2 py-1 rounded-full border border-gray-200">
+              <span key={i} className="bg-white/5 text-text-secondary text-xs px-2 py-1 rounded-full border border-white/10">
                 {tech}
               </span>
             ))}
@@ -175,7 +175,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
               href={demoUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="pill bg-accent hover:bg-[#CC6B13] text-white px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
+              className="pill bg-accent hover:bg-accent-hover text-black px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
             >
               <ArrowTopRightOnSquareIcon className="h-4 w-4" />
               Live Demo
@@ -186,7 +186,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
               href={reportUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="pill border border-accent text-accent hover:bg-accent hover:text-white px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
+              className="pill border border-accent text-accent hover:bg-accent hover:text-black px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
             >
               <DocumentTextIcon className="h-4 w-4" />
               View Report
@@ -197,7 +197,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
               href={sourceUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="pill bg-gray-100 text-text-secondary hover:bg-gray-200 px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
+              className="pill bg-white/5 text-text-secondary hover:bg-white/10 px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
             >
               <CodeBracketIcon className="h-4 w-4" />
               Source Code

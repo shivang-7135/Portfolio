@@ -297,7 +297,7 @@ const TechRadar: FC = memo(() => {
     <Section sectionId={SectionId.Skills} className="py-24">
       <div className="flex flex-col items-center mb-16">
         <span className="section-label mb-4">✦ Technologies</span>
-        <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-800 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-text-primary text-center">
           My Tech Stack
         </h2>
       </div>
@@ -309,8 +309,8 @@ const TechRadar: FC = memo(() => {
             onClick={() => handleCategoryChange(category)}
             className={`pill whitespace-nowrap transition-all duration-300 ${
               activeCategory === category
-                ? 'bg-[#E77C19] text-white'
-                : 'bg-white text-slate-600 hover:bg-[#CC6B13] hover:text-white'
+                ? 'bg-accent text-black'
+                : 'bg-white/5 text-text-secondary hover:bg-white/10 hover:text-text-primary'
             }`}
           >
             {category}
@@ -331,12 +331,12 @@ const TechRadar: FC = memo(() => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.3, type: 'spring', bounce: 0.4 }}
-              className="bg-white shadow-card rounded-3xl p-6 border border-gray-100/50 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center"
+              className="bg-surface/80 shadow-card rounded-3xl p-6 border border-white/10 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center"
             >
-              <div className={`text-slate-500 transition-colors duration-300 ${tech.colorClass}`}>
+              <div className={`text-text-muted transition-colors duration-300 ${tech.colorClass}`}>
                 {tech.icon}
               </div>
-              <span className="font-heading font-medium text-slate-700 text-center">
+              <span className="font-heading font-medium text-text-primary text-center">
                 {tech.name}
               </span>
             </motion.div>

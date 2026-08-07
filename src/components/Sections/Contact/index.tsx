@@ -26,11 +26,11 @@ const Contact: FC = memo(() => {
   const {headerText, description, items} = contact;
   return (
     <Section sectionId={SectionId.Contact}>
-      <div className="card-float p-8 md:p-14 rounded-5xl border border-gray-100 bg-surface">
+      <div className="card-float p-8 md:p-14 rounded-5xl bg-surface">
         <div className="flex flex-col gap-y-12">
           {/* Header */}
           <div>
-            <h2 className="section-label mb-4">*/ Let's Connect</h2>
+            <h2 className="section-label mb-4">Let&apos;s connect</h2>
             <h3 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-6">
               {headerText}
             </h3>
@@ -54,11 +54,11 @@ const Contact: FC = memo(() => {
                       <dt className="sr-only">{srLabel}</dt>
                       <dd>
                         <a
-                          className="flex items-center gap-x-3 p-3 rounded-2xl hover:bg-bg transition-colors duration-300 text-text-secondary hover:text-accent group"
+                          className="flex items-center gap-x-3 p-3 rounded-2xl hover:bg-white/5 transition-colors duration-300 text-text-secondary hover:text-accent group"
                           href={href}
                           target="_blank"
                           rel="noopener noreferrer">
-                          <div className="flex items-center justify-center h-10 w-10 rounded-xl bg-bg group-hover:bg-accent/10 transition-colors duration-300">
+                          <div className="flex items-center justify-center h-10 w-10 rounded-xl bg-white/5 group-hover:bg-accent/10 transition-colors duration-300">
                             <Icon aria-hidden="true" className="h-5 w-5 text-accent" />
                           </div>
                           <div>

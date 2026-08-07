@@ -11,15 +11,15 @@ const CurrentStatus = memo(() => {
         whileInView={{opacity: 1, y: 0}}
         viewport={{once: true}}
         transition={{duration: 0.6, type: 'spring', bounce: 0.4}}
-        className="relative rounded-[64px] p-[2px] overflow-hidden"
+        className="relative overflow-hidden rounded-[2rem] p-px"
       >
         {/* Animated gradient border background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#E77C19]/30 via-[#E77C19]/80 to-[#E77C19]/30 animate-pulse rounded-[64px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-violet-500/50 via-accent/70 to-violet-500/50 animate-pulse" />
         
         {/* Main card content */}
-        <div className="card-float relative h-full w-full bg-white/95 backdrop-blur-xl p-8 md:p-12">
+        <div className="relative h-full w-full bg-surface/95 p-7 md:p-10">
           {/* Top Row */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 border-b border-gray-100 pb-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 border-b border-white/10 pb-8">
             <div className="flex items-center gap-4 text-center md:text-left">
               <div className="relative flex h-4 w-4 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -30,9 +30,9 @@ const CurrentStatus = memo(() => {
               </h2>
             </div>
             
-            <div className="pill bg-gray-50 flex items-center gap-2 px-5 py-2.5 shadow-sm border border-gray-100 transition-colors hover:text-[#E77C19] hover:border-[#E77C19]/30 whitespace-nowrap">
+            <div className="pill flex items-center gap-2 px-5 py-2.5 shadow-sm whitespace-nowrap">
               <span className="text-xl">{currentStatus.statusEmoji}</span>
-              <span className="font-body text-sm font-medium text-gray-700">
+              <span className="font-body text-sm font-medium text-text-secondary">
                 {currentStatus.availabilityText}
               </span>
             </div>
@@ -54,10 +54,10 @@ const CurrentStatus = memo(() => {
                 }}
                 className="flex flex-col items-center text-center space-y-2 group"
               >
-                <span className="font-heading text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#E77C19] to-[#CC6B13] group-hover:scale-110 transition-transform duration-300">
+                <span className="font-heading text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-accent to-emerald-300 group-hover:scale-110 transition-transform duration-300">
                   {stat.value}
                 </span>
-                <span className="font-body text-sm md:text-base text-gray-500 font-semibold uppercase tracking-wider">
+                <span className="font-body text-sm md:text-base text-text-muted font-semibold uppercase tracking-wider">
                   {stat.label}
                 </span>
               </motion.div>

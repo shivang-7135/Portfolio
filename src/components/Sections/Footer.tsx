@@ -8,11 +8,11 @@ const currentYear = new Date().getFullYear();
 const Footer: FC = memo(() => (
   <div className="relative px-4 pb-24 pt-12 sm:px-8 sm:pb-24 sm:pt-14">
     {/* Separator */}
-    <div className="mx-auto max-w-screen-lg mb-8">
-      <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+    <div className="mx-auto max-w-6xl mb-8">
+      <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
     </div>
 
-    <div className="mx-auto max-w-screen-lg flex flex-col items-center gap-y-6">
+    <div className="mx-auto max-w-6xl flex flex-col items-center gap-y-6">
       {/* Back to top */}
       <a
         className="flex items-center gap-x-2 text-text-muted hover:text-accent transition-colors duration-300 text-sm font-body"

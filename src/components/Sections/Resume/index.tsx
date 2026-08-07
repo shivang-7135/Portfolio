@@ -15,7 +15,7 @@ const Resume: FC = memo(() => {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
           {/* Sticky Left Column */}
           <div className="lg:w-1/3 lg:sticky lg:top-32">
-            <h2 className="section-label mb-4">*/ Technical Arsenal</h2>
+            <h2 className="section-label mb-4">Technical arsenal</h2>
             <h3 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-6">
               Core Skills & Tools
             </h3>
@@ -34,14 +34,14 @@ const Resume: FC = memo(() => {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
           {/* Sticky Left Column */}
           <div className="lg:w-1/3 lg:sticky lg:top-32 z-10 w-full">
-            <h2 className="section-label mb-4">*/ Career Journey</h2>
+            <h2 className="section-label mb-4">Career journey</h2>
             <h3 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-6">
               Experience
             </h3>
             
             {/* Elegant visual card for the sticky side */}
             <motion.div 
-              className="w-full aspect-[4/5] rounded-5xl bg-text-primary p-8 flex flex-col justify-between hidden lg:flex"
+              className="w-full aspect-[4/5] rounded-5xl bg-gradient-to-br from-violet-600 to-[#171722] border border-white/10 p-8 flex flex-col justify-between hidden lg:flex"
               whileHover={{ rotateY: 5, rotateX: 5, scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
@@ -69,7 +69,7 @@ const Resume: FC = memo(() => {
         {/* EDUCATION SECTION */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
           <div className="lg:w-1/3 lg:sticky lg:top-32">
-            <h2 className="section-label mb-4">*/ Academic Roots</h2>
+            <h2 className="section-label mb-4">Academic roots</h2>
             <h3 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-6">
               Education
             </h3>

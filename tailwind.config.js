@@ -4,15 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        yellow: '#efc603',
-        accent: '#E77C19',
-        'accent-hover': '#CC6B13',
-        surface: '#FFFFFF',
-        bg: '#E6E6E6',
-        'bg-alt': '#DCDCDC',
-        'text-primary': '#1A1A1A',
-        'text-secondary': '#666666',
-        'text-muted': '#9A9A9A',
+        yellow: '#f7d774',
+        accent: '#c6ff6b',
+        'accent-hover': '#b3f353',
+        surface: '#15151c',
+        bg: '#0a0a0e',
+        'bg-alt': '#202029',
+        'text-primary': '#f5f5f0',
+        'text-secondary': '#b5b4bd',
+        'text-muted': '#7d7c86',
       },
       fontFamily: {
         heading: ['Outfit', 'system-ui', 'sans-serif'],
@@ -28,10 +28,10 @@ module.exports = {
         '7xl': '64px',
       },
       boxShadow: {
-        card: '0 4px 32px rgba(0, 0, 0, 0.06)',
-        'card-hover': '0 8px 48px rgba(0, 0, 0, 0.12)',
-        dock: '0 8px 32px rgba(0, 0, 0, 0.15)',
-        glow: '0 0 40px rgba(230, 126, 34, 0.3)',
+        card: '0 18px 50px rgba(0, 0, 0, 0.2)',
+        'card-hover': '0 24px 70px rgba(0, 0, 0, 0.36)',
+        dock: '0 16px 48px rgba(0, 0, 0, 0.35)',
+        glow: '0 0 40px rgba(198, 255, 107, 0.2)',
       },
       keyframes: {
         typing: {

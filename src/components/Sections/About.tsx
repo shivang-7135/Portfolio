@@ -14,7 +14,7 @@ const About: FC = memo(() => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, type: 'spring' }}
-        className="card-float p-8 md:p-12 relative overflow-hidden"
+        className="card-float p-7 md:p-10 relative overflow-hidden"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start">
           {/* Profile Image with subtle heartbeat pulse float */}
@@ -24,7 +24,7 @@ const About: FC = memo(() => {
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <div className="relative h-48 w-48 md:h-56 md:w-56 overflow-hidden rounded-3xl shadow-card">
+              <div className="relative h-48 w-48 md:h-56 md:w-56 overflow-hidden rounded-3xl border border-white/10 shadow-card">
                 <Image
                   alt="about-me-image"
                   className="h-full w-full object-cover"
@@ -53,7 +53,7 @@ const About: FC = memo(() => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, type: 'spring' }}
-                  className="flex items-center gap-x-3 p-3 rounded-2xl bg-bg hover:bg-bg-alt transition-colors duration-300" 
+                  className="flex items-center gap-x-3 p-3 rounded-2xl bg-white/[0.035] hover:bg-white/[0.08] transition-colors duration-300"
                   key={idx}>
                   {Icon && <Icon className="h-5 w-5 text-accent flex-shrink-0" />}
                   <div>
@@ -70,7 +70,7 @@ const About: FC = memo(() => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/ShivangSinhaCVv3.pdf"
-                className="flex items-center gap-x-2 rounded-full bg-accent text-white px-6 py-2.5 text-sm font-semibold font-body shadow-glow"
+                className="flex items-center gap-x-2 rounded-full bg-accent text-black px-6 py-2.5 text-sm font-semibold font-body shadow-glow"
                 download>
                 Download CV
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -81,7 +81,7 @@ const About: FC = memo(() => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="mailto:shivangsinha2@gmail.com"
-                className="flex items-center gap-x-2 rounded-full bg-surface text-text-primary border border-gray-200 px-6 py-2.5 text-sm font-semibold font-body hover:border-accent hover:text-accent shadow-card">
+                className="flex items-center gap-x-2 rounded-full bg-white/5 text-text-primary border border-white/15 px-6 py-2.5 text-sm font-semibold font-body hover:border-accent hover:text-accent shadow-card">
                 Email Me
               </motion.a>
             </div>
