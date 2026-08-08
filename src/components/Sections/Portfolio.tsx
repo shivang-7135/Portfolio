@@ -107,7 +107,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
             width={600}
           />
         ) : (
-          <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-violet-700 to-surface transition-transform duration-700 group-hover:scale-110">
+          <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-[#2a3020] to-surface transition-transform duration-700 group-hover:scale-110">
             <span className="text-6xl font-heading font-bold text-accent opacity-50">
               {title.charAt(0)}
             </span>

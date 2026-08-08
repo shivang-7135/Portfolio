@@ -11,13 +11,10 @@ const CurrentStatus = memo(() => {
         whileInView={{opacity: 1, y: 0}}
         viewport={{once: true}}
         transition={{duration: 0.6, type: 'spring', bounce: 0.4}}
-        className="relative overflow-hidden rounded-[2rem] p-px"
+        className="relative overflow-hidden rounded-3xl border border-white/15 bg-surface"
       >
-        {/* Animated gradient border background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-violet-500/50 via-accent/70 to-violet-500/50 animate-pulse" />
-        
         {/* Main card content */}
-        <div className="relative h-full w-full bg-surface/95 p-7 md:p-10">
+        <div className="relative h-full w-full p-7 md:p-10">
           {/* Top Row */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 border-b border-white/10 pb-8">
             <div className="flex items-center gap-4 text-center md:text-left">

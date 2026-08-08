@@ -38,11 +38,12 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }}
-        className="fixed top-5 inset-x-0 mx-auto w-[calc(100%-2rem)] max-w-5xl z-50 hidden sm:block"
+        className="fixed top-0 inset-x-0 z-50 hidden sm:block"
         id={headerID}>
-        <nav className="glass rounded-full px-3 py-2.5 shadow-dock flex justify-between items-center gap-x-2">
-          <a className="px-3 font-heading text-sm font-bold tracking-tight text-text-primary" href="#hero">SS<span className="text-accent">.</span></a>
-          <div className="flex items-center gap-x-1">
+        <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-7 py-7 lg:px-5">
+          <a className="flex items-center gap-2 font-heading text-2xl font-bold tracking-tight text-text-primary" href="#hero"><span className="text-accent">✦</span> Shivang</a>
+          <div className="flex items-center gap-x-1 lg:gap-x-3">
+          <Link className="relative px-3 py-2 text-sm font-semibold font-body text-text-primary/90 transition-colors duration-300 hover:text-accent" href="/#hero">Home</Link>
           {navSections.map(section => {
             const isActive = section === currentSection;
             const isContact = section === SectionId.Contact;
@@ -52,8 +53,8 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
                 <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }} key={section} className="pl-2">
                   <Link
                     href={`/#${section}`}
-                    className="px-5 py-2.5 rounded-full text-sm font-semibold font-body bg-accent text-black hover:bg-accent-hover transition-colors duration-300 shadow-glow">
-                    <span className="first-letter:uppercase">{section}</span>
+                    className="rounded-full border border-accent/70 px-5 py-2.5 text-sm font-semibold font-body text-text-primary hover:bg-accent hover:text-black transition-colors duration-300">
+                    Let&apos;s Talk <span className="ml-1 text-accent">→</span>
                   </Link>
                 </motion.div>
               );
@@ -62,8 +63,8 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
             return (
               <Link
                 className={classNames(
-                  'relative px-5 py-2 rounded-full text-sm font-medium font-body transition-colors duration-300',
-                  isActive ? 'text-text-primary bg-white/10' : 'text-text-secondary hover:text-text-primary',
+                  'relative px-3 py-2 text-sm font-semibold font-body transition-colors duration-300',
+                  isActive ? 'text-accent' : 'text-text-primary/90 hover:text-accent',
                 )}
                 href={`/#${section}`}
                 key={section}>
@@ -93,7 +94,7 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 0.5 }}
           aria-label="Menu Button"
-          className="fixed right-5 top-5 z-50 rounded-full glass p-4 shadow-xl hover:bg-white/10 transition-colors duration-300 sm:hidden"
+          className="fixed right-5 top-5 z-50 rounded-full border border-white/15 bg-black/70 p-4 shadow-xl backdrop-blur-lg hover:bg-white/10 transition-colors duration-300 sm:hidden"
           onClick={toggleOpen}>
           <Bars3BottomRightIcon className="h-6 w-6 text-text-primary" />
           <span className="sr-only">Open menu</span>

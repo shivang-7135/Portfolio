@@ -5,14 +5,14 @@ module.exports = {
     extend: {
       colors: {
         yellow: '#f7d774',
-        accent: '#c6ff6b',
-        'accent-hover': '#b3f353',
-        surface: '#15151c',
-        bg: '#0a0a0e',
-        'bg-alt': '#202029',
-        'text-primary': '#f5f5f0',
-        'text-secondary': '#b5b4bd',
-        'text-muted': '#7d7c86',
+        accent: '#c7fb28',
+        'accent-hover': '#d6ff58',
+        surface: '#171817',
+        bg: '#101110',
+        'bg-alt': '#232522',
+        'text-primary': '#f4f5ef',
+        'text-secondary': '#b7b8b1',
+        'text-muted': '#82847d',
       },
       fontFamily: {
         heading: ['Outfit', 'system-ui', 'sans-serif'],
