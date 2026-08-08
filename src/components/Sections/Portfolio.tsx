@@ -35,7 +35,7 @@ const Portfolio: FC = memo(() => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 perspective-1000">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 perspective-1000">
           {sortedItems.map((item, index) => (
             <PortfolioCard item={item} index={index} key={`${item.title}-${index}`} />
           ))}
@@ -91,11 +91,11 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="group card-float bg-surface shadow-card hover:shadow-card-hover transition-shadow duration-300 overflow-hidden p-3 md:p-4 pb-7 flex flex-col gap-y-6"
+      className={`group card-float bg-surface shadow-card hover:shadow-card-hover transition-shadow duration-300 overflow-hidden p-3 md:p-4 pb-7 flex flex-col gap-y-6 ${featured ? 'md:col-span-2 lg:flex-row lg:gap-x-8' : ''}`}
     >
       {/* Image */}
       <div 
-        className="relative h-64 md:h-80 overflow-hidden rounded-3xl bg-white/5"
+        className={`relative h-64 overflow-hidden rounded-3xl bg-white/5 md:h-80 ${featured ? 'lg:h-auto lg:min-h-[24rem] lg:w-[52%] lg:shrink-0' : ''}`}
         style={{ transform: "translateZ(30px)" }} // Pop out effect
       >
         {image ? (
@@ -129,7 +129,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
 
       {/* Content */}
       <div 
-        className="px-4 flex flex-col flex-grow"
+        className="flex flex-grow flex-col px-4"
         style={{ transform: "translateZ(40px)" }} // Pop out text further
       >
         <h3 className="font-heading text-xl font-bold text-text-primary mb-3 transition-colors duration-300">
@@ -141,9 +141,9 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
 
         {/* Metrics */}
         {metrics && metrics.length > 0 && (
-          <div className="flex flex-wrap gap-4 mb-4">
+          <div className="mb-4 grid grid-cols-3 gap-3 border-y border-white/8 py-4">
             {metrics.map((metric, i) => (
-              <div key={i} className="flex flex-col">
+              <div className="flex flex-col" key={i}>
                 <span className="font-heading text-lg font-bold text-text-primary leading-tight">
                   {metric.value}
                 </span>
