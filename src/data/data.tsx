@@ -13,7 +13,7 @@ import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 import heroImage from '../images/header-background.webp';
-import profilepic from '../images/profile.jpg';
+import profilepic from '../images/shivang-portrait.png';
 import testimonialImage from '../images/testimonial.webp';
 import {
   About,
