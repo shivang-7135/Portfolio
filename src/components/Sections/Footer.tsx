@@ -1,3 +1,4 @@
+import {motion} from 'framer-motion';
 import {FC, memo} from 'react';
 
 import {SectionId} from '../../data/data';
@@ -9,7 +10,7 @@ const Footer: FC = memo(() => (
   <div className="relative px-4 pb-24 pt-12 sm:px-8 sm:pb-24 sm:pt-14">
     {/* Separator */}
     <div className="mx-auto max-w-6xl mb-8">
-      <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-accent/30 to-transparent animate-gradient-x" />
     </div>
 
     <div className="mx-auto max-w-6xl flex flex-col items-center gap-y-6">
@@ -24,14 +25,22 @@ const Footer: FC = memo(() => (
       </a>
 
       {/* Social links */}
-      <div className="flex gap-x-5 text-text-muted">
+      <motion.div 
+        whileHover={{ y: -3, scale: 1.1 }}
+        className="flex gap-x-5 text-text-muted"
+      >
         <Socials />
-      </div>
+      </motion.div>
 
-      {/* Copyright */}
-      <span className="text-xs text-text-muted font-body">
-        © {currentYear} Shivang Sinha. All rights reserved.
-      </span>
+      {/* Dev signature & Copyright */}
+      <div className="flex flex-col items-center gap-y-2 mt-4 text-center">
+        <span className="text-xs text-text-muted font-mono">
+          Built with ❤️ and React by Shivang Sinha
+        </span>
+        <span className="text-xs text-text-muted font-body">
+          © {currentYear} Shivang Sinha. All rights reserved.
+        </span>
+      </div>
     </div>
   </div>
 ));

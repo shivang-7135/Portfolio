@@ -18,6 +18,7 @@ module.exports = {
         heading: ['Outfit', 'system-ui', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
         script: ['Caveat', 'cursive'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       borderRadius: {
         '2xl': '16px',
@@ -32,6 +33,8 @@ module.exports = {
         'card-hover': '0 24px 70px rgba(0, 0, 0, 0.36)',
         dock: '0 16px 48px rgba(0, 0, 0, 0.35)',
         glow: '0 0 40px rgba(198, 255, 107, 0.2)',
+        'glow-accent': '0 0 60px rgba(199, 251, 40, 0.25), 0 0 120px rgba(199, 251, 40, 0.1)',
+        'glow-sm': '0 0 20px rgba(199, 251, 40, 0.15)',
       },
       keyframes: {
         typing: {
@@ -65,6 +68,42 @@ module.exports = {
           '0%': { opacity: '0', transform: 'scale(0.9)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'glow-pulse': {
+          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+          '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+        },
+        typewriter: {
+          'from': { width: '0' },
+          'to': { width: '100%' },
+        },
+        'cursor-blink': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
+        'scan-line': {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100%)' },
+        },
+        'draw-line': {
+          '0%': { strokeDashoffset: '1' },
+          '100%': { strokeDashoffset: '0' },
+        },
+        'gradient-x': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        'spin-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'dock-bounce': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
@@ -76,6 +115,14 @@ module.exports = {
         'slide-up': 'slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         float: 'float 6s ease-in-out infinite',
         'scale-in': 'scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        marquee: 'marquee 40s linear infinite',
+        'marquee-fast': 'marquee 25s linear infinite',
+        'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+        'cursor-blink': 'cursor-blink 1s step-end infinite',
+        'scan-line': 'scan-line 8s linear infinite',
+        'gradient-x': 'gradient-x 3s ease infinite',
+        'spin-slow': 'spin-slow 20s linear infinite',
+        'dock-bounce': 'dock-bounce 0.5s ease',
       },
       screens: {
         touch: {raw: 'only screen and (pointer: coarse)'},

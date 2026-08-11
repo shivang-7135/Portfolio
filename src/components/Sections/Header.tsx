@@ -10,6 +10,12 @@ import {useNavObserver} from '../../hooks/useNavObserver';
 
 export const headerID = 'headerNav';
 
+const getSectionName = (section: string) => {
+  if (section === 'resume') return 'experience';
+  if (section === 'portfolio') return 'work';
+  return section;
+};
+
 const Header: FC = memo(() => {
   const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
   const navSections = useMemo(
@@ -25,6 +31,11 @@ const Header: FC = memo(() => {
 
   return (
     <>
+      <div className="fixed top-5 left-5 z-50 sm:top-7 sm:left-7">
+        <a className="font-mono text-xl font-bold tracking-tight text-text-primary transition-colors hover:text-accent" href="#hero">
+          <span className="text-accent">&lt;</span>Shivang <span className="text-accent">/&gt;</span>
+        </a>
+      </div>
       <MobileNav currentSection={currentSection} navSections={navSections} />
       <DesktopNav currentSection={currentSection} navSections={navSections} />
     </>
@@ -38,41 +49,32 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.5 }}
-        className="fixed top-0 inset-x-0 z-50 hidden sm:block"
+        className="fixed bottom-8 inset-x-0 z-50 hidden sm:flex sm:justify-center"
         id={headerID}>
-        <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-7 py-7 lg:px-5">
-          <a className="flex items-center gap-2 font-heading text-2xl font-bold tracking-tight text-text-primary" href="#hero"><span className="text-accent">✦</span> Shivang</a>
-          <div className="flex items-center gap-x-1 lg:gap-x-3">
-          <Link className="relative px-3 py-2 text-sm font-semibold font-body text-text-primary/90 transition-colors duration-300 hover:text-accent" href="/#hero">Home</Link>
+        <nav className="dock-nav">
+          <motion.div whileHover={{ y: -3 }}>
+            <Link className={classNames('dock-nav__item font-mono', (currentSection === null || currentSection === SectionId.Hero) && 'dock-nav__item--active')} href="/#hero">
+              <span className="dock-nav__prefix">//</span> home
+            </Link>
+          </motion.div>
           {navSections.map(section => {
             const isActive = section === currentSection;
             const isContact = section === SectionId.Contact;
             
-            if (isContact) {
-              return (
-                <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }} key={section} className="pl-2">
-                  <Link
-                    href={`/#${section}`}
-                    className="rounded-full border border-accent/70 px-5 py-2.5 text-sm font-semibold font-body text-text-primary hover:bg-accent hover:text-black transition-colors duration-300">
-                    Let&apos;s Talk <span className="ml-1 text-accent">→</span>
-                  </Link>
-                </motion.div>
-              );
-            }
-
             return (
-              <Link
-                className={classNames(
-                  'relative px-3 py-2 text-sm font-semibold font-body transition-colors duration-300',
-                  isActive ? 'text-accent' : 'text-text-primary/90 hover:text-accent',
-                )}
-                href={`/#${section}`}
-                key={section}>
-                <span className="first-letter:uppercase">{section}</span>
-              </Link>
+              <motion.div whileHover={{ y: -3 }} key={section}>
+                <Link
+                  className={classNames(
+                    'dock-nav__item font-mono',
+                    isActive && 'dock-nav__item--active',
+                    isContact && 'dock-nav__item--cta'
+                  )}
+                  href={`/#${section}`}>
+                  <span className="dock-nav__prefix">//</span> {getSectionName(section)}
+                </Link>
+              </motion.div>
             );
           })}
-          </div>
         </nav>
       </motion.header>
     );
@@ -127,13 +129,27 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
                   </button>
                 </div>
                 <nav className="flex flex-col gap-y-3">
+                  <Link
+                    className={classNames(
+                      'px-5 py-4 rounded-3xl text-lg font-mono font-medium transition-all duration-300 relative',
+                      (currentSection === null || currentSection === SectionId.Hero)
+                        ? 'bg-white/10 text-text-primary'
+                        : 'text-text-secondary hover:bg-white/10 hover:text-text-primary',
+                    )}
+                    href="/#hero"
+                    onClick={toggleOpen}>
+                    <span className="text-accent/50 mr-2">//</span> home
+                    {(currentSection === null || currentSection === SectionId.Hero) && (
+                       <div className="absolute right-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-accent" />
+                    )}
+                  </Link>
                   {navSections.map(section => {
                     const isActive = section === currentSection;
                     const isContact = section === SectionId.Contact;
                     return (
                       <Link
                         className={classNames(
-                          'px-5 py-4 rounded-3xl text-lg font-medium font-body transition-all duration-300 first-letter:uppercase relative',
+                          'px-5 py-4 rounded-3xl text-lg font-mono font-medium transition-all duration-300 relative',
                           isContact
                             ? 'bg-accent text-black text-center font-bold mt-4 shadow-glow'
                             : isActive
@@ -143,9 +159,9 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
                         href={`/#${section}`}
                         key={section}
                         onClick={toggleOpen}>
-                        {section}
+                        <span className={classNames(isContact ? 'text-black/50' : 'text-accent/50', 'mr-2')}>//</span> {getSectionName(section)}
                         {isActive && !isContact && (
-                           <div className="absolute left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-accent" />
+                           <div className="absolute right-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-accent" />
                         )}
                       </Link>
                     );

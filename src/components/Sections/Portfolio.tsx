@@ -1,7 +1,7 @@
 import {ArrowTopRightOnSquareIcon, CodeBracketIcon, DocumentTextIcon} from '@heroicons/react/24/outline';
 import {motion, useMotionValue, useSpring, useTransform} from 'framer-motion';
 import Image from 'next/image';
-import {FC, memo, useMemo} from 'react';
+import {FC, memo, useMemo, useRef} from 'react';
 
 import {portfolioItems, SectionId} from '../../data/data';
 import {PortfolioItem} from '../../data/dataDef';
@@ -57,9 +57,12 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
     
@@ -71,6 +74,10 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
     
     x.set(xPct);
     y.set(yPct);
+
+    // Spotlight effect update
+    cardRef.current.style.setProperty('--spotlight-x', `${mouseX}px`);
+    cardRef.current.style.setProperty('--spotlight-y', `${mouseY}px`);
   };
 
   const handleMouseLeave = () => {
@@ -80,6 +87,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
 
   return (
     <motion.div
+      ref={cardRef}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -91,11 +99,23 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className={`group card-float bg-surface shadow-card hover:shadow-card-hover transition-shadow duration-300 overflow-hidden p-3 md:p-4 pb-7 flex flex-col gap-y-6 ${featured ? 'md:col-span-2 lg:flex-row lg:gap-x-8' : ''}`}
+      className={`spotlight-card group card-float bg-surface shadow-card hover:shadow-card-hover transition-shadow duration-300 overflow-hidden p-3 md:p-4 pb-7 flex flex-col gap-y-6 relative ${featured ? 'md:col-span-2 lg:flex-row lg:gap-x-8' : ''}`}
     >
-      {/* Image */}
+      {/* Spotlight overlay */}
       <div 
-        className={`relative h-64 overflow-hidden rounded-3xl bg-white/5 md:h-80 ${featured ? 'lg:h-auto lg:min-h-[24rem] lg:w-[52%] lg:shrink-0' : ''}`}
+        className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          background: "radial-gradient(600px circle at var(--spotlight-x, 0) var(--spotlight-y, 0), rgba(199, 251, 40, 0.05), transparent 40%)"
+        }}
+      />
+
+      {/* Image Container with Reveal */}
+      <motion.div 
+        initial={{ clipPath: 'inset(100% 0 0 0)' }}
+        whileInView={{ clipPath: 'inset(0 0 0 0)' }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={`relative h-64 overflow-hidden rounded-3xl bg-white/5 md:h-80 z-10 ${featured ? 'lg:h-auto lg:min-h-[24rem] lg:w-[52%] lg:shrink-0' : ''}`}
         style={{ transform: "translateZ(30px)" }} // Pop out effect
       >
         {image ? (
@@ -114,22 +134,60 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
           </div>
         )}
         
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Dark Overlay that appears on Hover */}
+        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20 overflow-hidden">
+          {/* Action Buttons Overlay sliding up */}
+          <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex flex-wrap justify-center gap-3 p-4">
+            {demoUrl && (
+              <a 
+                href={demoUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="pill bg-accent hover:bg-accent-hover text-black px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
+              >
+                <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                Live Demo
+              </a>
+            )}
+            {reportUrl && (
+              <a 
+                href={reportUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="pill border border-accent text-accent hover:bg-accent hover:text-black px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
+              >
+                <DocumentTextIcon className="h-4 w-4" />
+                View Report
+              </a>
+            )}
+            {sourceUrl && (
+              <a 
+                href={sourceUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="pill bg-white/5 text-text-secondary hover:bg-white/10 px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
+              >
+                <CodeBracketIcon className="h-4 w-4" />
+                Source Code
+              </a>
+            )}
+          </div>
+        </div>
         
         {/* Featured Badge */}
         {featured && (
-          <div className="absolute top-4 left-4">
+          <div className="absolute top-4 left-4 z-30">
             <span className="pill bg-accent text-black px-3 py-1 text-xs font-semibold shadow-sm">
               Featured
             </span>
           </div>
         )}
 
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div 
-        className="flex flex-grow flex-col px-4"
+        className="flex flex-grow flex-col px-4 z-10"
         style={{ transform: "translateZ(40px)" }} // Pop out text further
       >
         <h3 className="font-heading text-xl font-bold text-text-primary mb-3 transition-colors duration-300">
@@ -157,7 +215,7 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
 
         {/* Tech Stack */}
         {techStack && techStack.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2">
             {techStack.map((tech, i) => (
               <span key={i} className="bg-white/5 text-text-secondary text-xs px-2 py-1 rounded-full border border-white/10">
                 {tech}
@@ -167,43 +225,6 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
         )}
 
         <div className="flex-grow" />
-
-        {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 mt-auto">
-          {demoUrl && (
-            <a 
-              href={demoUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="pill bg-accent hover:bg-accent-hover text-black px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
-            >
-              <ArrowTopRightOnSquareIcon className="h-4 w-4" />
-              Live Demo
-            </a>
-          )}
-          {reportUrl && (
-            <a 
-              href={reportUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="pill border border-accent text-accent hover:bg-accent hover:text-black px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
-            >
-              <DocumentTextIcon className="h-4 w-4" />
-              View Report
-            </a>
-          )}
-          {sourceUrl && (
-            <a 
-              href={sourceUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="pill bg-white/5 text-text-secondary hover:bg-white/10 px-4 py-2 text-sm font-semibold flex items-center gap-2 transition-colors duration-300"
-            >
-              <CodeBracketIcon className="h-4 w-4" />
-              Source Code
-            </a>
-          )}
-        </div>
       </div>
     </motion.div>
   );

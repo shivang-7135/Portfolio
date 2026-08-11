@@ -1,7 +1,7 @@
 import { SectionId } from '../../data/data';
 import Section from '../Layout/Section';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FC, memo, useState, useCallback } from 'react';
+import { FC, memo, useState, useCallback, useMemo } from 'react';
 
 type TechCategory = 'All' | 'AI / ML' | 'Backend' | 'Frontend' | 'Cloud & DevOps' | 'Databases';
 
@@ -10,6 +10,7 @@ interface TechItem {
   category: TechCategory;
   icon: JSX.Element;
   colorClass: string;
+  hexColor: string;
 }
 
 const SvgIcon: FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -24,6 +25,7 @@ const techItems: TechItem[] = [
     name: 'Python',
     category: 'AI / ML',
     colorClass: 'group-hover:text-[#3776AB]',
+    hexColor: '#3776AB',
     icon: (
       <SvgIcon>
         <path d="M14.25 2c-3.13 0-5.87.5-5.87 2.25v2.5h6v1.5h-8.5C3.75 8.25 2 10.13 2 13.5c0 3.38 1.75 5.25 3.88 5.25h1.5v-2.5h-6v-1.5h8.5c2.13 0 3.88-1.88 3.88-5.25 0-3.38-1.75-5.25-3.88-5.25z" fillRule="evenodd" />
@@ -34,6 +36,7 @@ const techItems: TechItem[] = [
     name: 'PyTorch',
     category: 'AI / ML',
     colorClass: 'group-hover:text-[#EE4C2C]',
+    hexColor: '#EE4C2C',
     icon: (
       <SvgIcon>
         <path d="M12 2L4 6v6c0 5.52 3.58 10.74 8 12 4.42-1.26 8-6.48 8-12V6l-8-4zm0 2.18l6 3v4.82c0 4.38-2.67 8.52-6 9.77-3.33-1.25-6-5.39-6-9.77V7.18l6-3z" />
@@ -44,6 +47,7 @@ const techItems: TechItem[] = [
     name: 'HuggingFace',
     category: 'AI / ML',
     colorClass: 'group-hover:text-[#FFD21E]',
+    hexColor: '#FFD21E',
     icon: (
       <SvgIcon>
         <circle cx="12" cy="12" r="10" />
@@ -57,6 +61,7 @@ const techItems: TechItem[] = [
     name: 'LangChain',
     category: 'AI / ML',
     colorClass: 'group-hover:text-[#0052CC]',
+    hexColor: '#0052CC',
     icon: (
       <SvgIcon>
         <path d="M8 10V6c0-2.21 1.79-4 4-4s4 1.79 4 4v4h2V6c0-3.31-2.69-6-6-6S6 2.69 6 6v4H8zm8 4v4c0 2.21-1.79 4-4 4s-4-1.79-4-4v-4H6v4c0 3.31 2.69 6 6 6s6-2.69 6-6v-4h-2z" />
@@ -67,6 +72,7 @@ const techItems: TechItem[] = [
     name: 'LangGraph',
     category: 'AI / ML',
     colorClass: 'group-hover:text-[#0052CC]',
+    hexColor: '#0052CC',
     icon: (
       <SvgIcon>
         <circle cx="6" cy="6" r="3" />
@@ -80,6 +86,7 @@ const techItems: TechItem[] = [
     name: 'spaCy',
     category: 'AI / ML',
     colorClass: 'group-hover:text-[#09A3D5]',
+    hexColor: '#09A3D5',
     icon: (
       <SvgIcon>
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
@@ -90,6 +97,7 @@ const techItems: TechItem[] = [
     name: 'BERT',
     category: 'AI / ML',
     colorClass: 'group-hover:text-[#4285F4]',
+    hexColor: '#4285F4',
     icon: (
       <SvgIcon>
         <rect x="3" y="4" width="18" height="16" rx="2" />
@@ -102,6 +110,7 @@ const techItems: TechItem[] = [
     name: 'FastAPI',
     category: 'Backend',
     colorClass: 'group-hover:text-[#009688]',
+    hexColor: '#009688',
     icon: (
       <SvgIcon>
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -111,7 +120,8 @@ const techItems: TechItem[] = [
   {
     name: 'Flask',
     category: 'Backend',
-    colorClass: 'group-hover:text-[#000000]',
+    colorClass: 'group-hover:text-[#FFFFFF]',
+    hexColor: '#FFFFFF',
     icon: (
       <SvgIcon>
         <path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-17v6l-5 7h12l-5-7V5h-2z" />
@@ -122,6 +132,7 @@ const techItems: TechItem[] = [
     name: 'Django',
     category: 'Backend',
     colorClass: 'group-hover:text-[#092E20]',
+    hexColor: '#092E20',
     icon: (
       <SvgIcon>
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9h2v9h-2zm4 0v-9h2v9h-2z" />
@@ -132,6 +143,7 @@ const techItems: TechItem[] = [
     name: 'Celery',
     category: 'Backend',
     colorClass: 'group-hover:text-[#37814A]',
+    hexColor: '#37814A',
     icon: (
       <SvgIcon>
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14H9v-2h4v2zm0-4H9V7h4v5z" />
@@ -142,6 +154,7 @@ const techItems: TechItem[] = [
     name: 'Pydantic',
     category: 'Backend',
     colorClass: 'group-hover:text-[#E92063]',
+    hexColor: '#E92063',
     icon: (
       <SvgIcon>
         <path d="M12 2l-9 4v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4zm0 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z" />
@@ -153,6 +166,7 @@ const techItems: TechItem[] = [
     name: 'React',
     category: 'Frontend',
     colorClass: 'group-hover:text-[#61DAFB]',
+    hexColor: '#61DAFB',
     icon: (
       <SvgIcon>
         <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.5" fill="none" transform="rotate(30 12 12)" />
@@ -166,6 +180,7 @@ const techItems: TechItem[] = [
     name: 'TypeScript',
     category: 'Frontend',
     colorClass: 'group-hover:text-[#3178C6]',
+    hexColor: '#3178C6',
     icon: (
       <SvgIcon>
         <rect x="2" y="2" width="20" height="20" rx="2" />
@@ -177,6 +192,7 @@ const techItems: TechItem[] = [
     name: 'JavaScript',
     category: 'Frontend',
     colorClass: 'group-hover:text-[#F7DF1E]',
+    hexColor: '#F7DF1E',
     icon: (
       <SvgIcon>
         <rect x="2" y="2" width="20" height="20" rx="2" />
@@ -187,7 +203,8 @@ const techItems: TechItem[] = [
   {
     name: 'Next.js',
     category: 'Frontend',
-    colorClass: 'group-hover:text-[#000000]',
+    colorClass: 'group-hover:text-[#FFFFFF]',
+    hexColor: '#FFFFFF',
     icon: (
       <SvgIcon>
         <circle cx="12" cy="12" r="10" />
@@ -200,6 +217,7 @@ const techItems: TechItem[] = [
     name: 'Azure',
     category: 'Cloud & DevOps',
     colorClass: 'group-hover:text-[#008AD7]',
+    hexColor: '#008AD7',
     icon: (
       <SvgIcon>
         <path d="M13 2L2 15h6l4-8 5 9h5L13 2z" />
@@ -210,6 +228,7 @@ const techItems: TechItem[] = [
     name: 'Docker',
     category: 'Cloud & DevOps',
     colorClass: 'group-hover:text-[#2496ED]',
+    hexColor: '#2496ED',
     icon: (
       <SvgIcon>
         <path d="M22 13.5c0-1.5-1.5-2.5-3-2.5H6.5v-3h1.5V6.5H6.5v-3H4.5v3H3v1.5h1.5V11H3v1.5h1.5v1H2C.9 13.5 0 14.4 0 15.5S.9 17.5 2 17.5h18c1.1 0 2-.9 2-2z" />
@@ -220,6 +239,7 @@ const techItems: TechItem[] = [
     name: 'CI/CD',
     category: 'Cloud & DevOps',
     colorClass: 'group-hover:text-[#F05032]',
+    hexColor: '#F05032',
     icon: (
       <SvgIcon>
         <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-11v4h2v-4h-2zm0 6v2h2v-2h-2z" />
@@ -230,6 +250,7 @@ const techItems: TechItem[] = [
     name: 'Azure OpenAI',
     category: 'Cloud & DevOps',
     colorClass: 'group-hover:text-[#10A37F]',
+    hexColor: '#10A37F',
     icon: (
       <SvgIcon>
         <path d="M12 2L2 8l10 6 10-6-10-6zm0 8L4.5 6 12 2l7.5 4L12 10zM2 12v6l10 6 10-6v-6l-10 6-10-6z" />
@@ -241,6 +262,7 @@ const techItems: TechItem[] = [
     name: 'PostgreSQL',
     category: 'Databases',
     colorClass: 'group-hover:text-[#336791]',
+    hexColor: '#336791',
     icon: (
       <SvgIcon>
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
@@ -251,6 +273,7 @@ const techItems: TechItem[] = [
     name: 'MongoDB',
     category: 'Databases',
     colorClass: 'group-hover:text-[#47A248]',
+    hexColor: '#47A248',
     icon: (
       <SvgIcon>
         <path d="M12 2C8.4 4.5 5 8 5 12c0 3.9 3.1 7 7 7s7-3.1 7-7c0-4-3.4-7.5-7-10z" />
@@ -260,7 +283,8 @@ const techItems: TechItem[] = [
   {
     name: 'FAISS',
     category: 'Databases',
-    colorClass: 'group-hover:text-[#000000]',
+    colorClass: 'group-hover:text-[#FFFFFF]',
+    hexColor: '#FFFFFF',
     icon: (
       <SvgIcon>
         <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
@@ -271,6 +295,7 @@ const techItems: TechItem[] = [
     name: 'Chroma',
     category: 'Databases',
     colorClass: 'group-hover:text-[#FF5722]',
+    hexColor: '#FF5722',
     icon: (
       <SvgIcon>
         <circle cx="12" cy="12" r="10" />
@@ -284,10 +309,11 @@ const categories: TechCategory[] = ['All', 'AI / ML', 'Backend', 'Frontend', 'Cl
 
 const TechRadar: FC = memo(() => {
   const [activeCategory, setActiveCategory] = useState<TechCategory>('All');
+  const [hoveredTech, setHoveredTech] = useState<string | null>(null);
 
-  const filteredTech = techItems.filter(
+  const filteredTech = useMemo(() => techItems.filter(
     (tech) => activeCategory === 'All' || tech.category === activeCategory
-  );
+  ), [activeCategory]);
 
   const handleCategoryChange = useCallback((category: TechCategory) => {
     setActiveCategory(category);
@@ -307,12 +333,19 @@ const TechRadar: FC = memo(() => {
           <button
             key={category}
             onClick={() => handleCategoryChange(category)}
-            className={`pill whitespace-nowrap transition-all duration-300 ${
+            className={`relative px-5 py-2.5 rounded-full whitespace-nowrap transition-colors duration-300 z-10 font-body text-sm font-medium ${
               activeCategory === category
-                ? 'bg-accent text-black'
-                : 'bg-white/5 text-text-secondary hover:bg-white/10 hover:text-text-primary'
+                ? 'text-black'
+                : 'text-text-secondary hover:text-text-primary'
             }`}
           >
+            {activeCategory === category && (
+              <motion.div
+                layoutId="activeTab"
+                className="absolute inset-0 bg-accent rounded-full -z-10"
+                transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+              />
+            )}
             {category}
           </button>
         ))}
@@ -320,23 +353,40 @@ const TechRadar: FC = memo(() => {
 
       <motion.div
         layout
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 max-w-6xl mx-auto px-4"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto px-4"
       >
         <AnimatePresence mode="popLayout">
-          {filteredTech.map((tech) => (
+          {filteredTech.map((tech, index) => (
             <motion.div
               key={tech.name}
               layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3, type: 'spring', bounce: 0.4 }}
-              className="bg-surface/80 shadow-card rounded-3xl p-6 border border-white/10 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center"
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: -20 }}
+              transition={{ duration: 0.4, delay: index * 0.05, type: 'spring', bounce: 0.4 }}
+              onMouseEnter={() => setHoveredTech(tech.name)}
+              onMouseLeave={() => setHoveredTech(null)}
+              className="relative bg-surface/80 shadow-card rounded-3xl p-6 border border-white/10 transition-all duration-300 group flex flex-col items-center justify-center cursor-pointer"
+              style={{
+                boxShadow: hoveredTech === tech.name ? `0 0 20px 0 ${tech.hexColor}40` : undefined,
+                borderColor: hoveredTech === tech.name ? `${tech.hexColor}60` : undefined,
+                transform: hoveredTech === tech.name ? 'translateY(-4px)' : 'none'
+              }}
             >
+              {/* Tooltip on hover */}
+              <div 
+                className={`absolute -top-10 bg-[#2D2D2D] text-text-primary text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none transition-all duration-300 shadow-xl border border-white/10 ${
+                  hoveredTech === tech.name ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                }`}
+              >
+                {tech.name}
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#2D2D2D] border-b border-r border-white/10 rotate-45"></div>
+              </div>
+
               <div className={`text-text-muted transition-colors duration-300 ${tech.colorClass}`}>
                 {tech.icon}
               </div>
-              <span className="font-heading font-medium text-text-primary text-center">
+              <span className="font-heading font-medium text-text-primary text-center opacity-0 group-hover:opacity-0 transition-opacity duration-300 absolute bottom-4">
                 {tech.name}
               </span>
             </motion.div>

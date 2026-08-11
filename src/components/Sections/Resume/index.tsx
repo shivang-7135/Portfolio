@@ -1,5 +1,5 @@
-import {motion} from 'framer-motion';
-import {FC, memo} from 'react';
+import {motion, useScroll, useTransform} from 'framer-motion';
+import {FC, memo, useRef} from 'react';
 
 import {certifications, devTools, education, experience, SectionId} from '../../../data/data';
 import Section from '../../Layout/Section';
@@ -7,6 +7,15 @@ import {SkillsSection} from './Skills';
 import TimelineItem from './TimelineItem';
 
 const Resume: FC = memo(() => {
+  const experienceRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: experienceRef,
+    offset: ["start center", "end center"]
+  });
+  
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
     <Section sectionId={SectionId.Resume}>
       <div className="flex flex-col gap-y-24">
@@ -31,7 +40,15 @@ const Resume: FC = memo(() => {
         </div>
 
         {/* EXPERIENCE SECTION (Sticky Stacking Layout) */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative" ref={experienceRef}>
+          {/* Vertical scroll progress line */}
+          <div className="hidden lg:block absolute left-[31.5%] top-10 bottom-32 w-[2px] bg-white/10 z-0">
+            <motion.div 
+              className="w-full bg-accent origin-top" 
+              style={{ scaleY, height: '100%' }}
+            />
+          </div>
+
           {/* Sticky Left Column */}
           <div className="lg:w-1/3 lg:sticky lg:top-32 z-10 w-full">
             <h2 className="section-label mb-4">Career journey</h2>
@@ -41,7 +58,7 @@ const Resume: FC = memo(() => {
             
             {/* Elegant visual card for the sticky side */}
             <motion.div 
-              className="w-full aspect-[4/5] rounded-5xl bg-gradient-to-br from-violet-600 to-[#171722] border border-white/10 p-8 flex flex-col justify-between hidden lg:flex"
+              className="w-full aspect-[4/5] rounded-5xl bg-gradient-to-br from-violet-600 to-[#171722] border border-white/10 p-8 flex flex-col justify-between hidden lg:flex relative z-10"
               whileHover={{ rotateY: 5, rotateX: 5, scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
@@ -55,7 +72,7 @@ const Resume: FC = memo(() => {
           </div>
 
           {/* Scrolling Right Column (Stacking Cards) */}
-          <div className="lg:w-2/3 w-full flex flex-col gap-y-6 lg:pb-32">
+          <div className="lg:w-2/3 w-full flex flex-col gap-y-6 lg:pb-32 relative z-10">
             {experience.map((item, index) => (
               <TimelineItem 
                 item={item} 
