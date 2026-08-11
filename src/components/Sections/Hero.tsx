@@ -3,7 +3,8 @@ import {motion, Variants} from 'framer-motion';
 import Image from 'next/image';
 import {FC, memo} from 'react';
 
-import {aboutData, heroData, SectionId} from '../../data/data';
+import heroPortrait from '../../images/shivang-portrait.png';
+import {heroData, SectionId} from '../../data/data';
 import Section from '../Layout/Section';
 
 const containerVariants: Variants = {
@@ -128,7 +129,7 @@ const Hero: FC = memo(() => {
               height={780}
               priority
               sizes="(min-width: 1024px) 45vw, 88vw"
-              src={aboutData.profileImageSrc!}
+              src={heroPortrait}
               width={620}
             />
             <motion.div 
