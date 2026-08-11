@@ -31,7 +31,7 @@ interface HeroActionItem {
   href: string;
   text: string;
   primary?: boolean;
-  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>>;
+  Icon?: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, 'ref'>> | FC<IconProps>;
 }
 
 /**

@@ -8,6 +8,8 @@ import {FC, Fragment, memo, useCallback, useMemo, useState} from 'react';
 import {SectionId} from '../../data/data';
 import {useNavObserver} from '../../hooks/useNavObserver';
 
+import LinkedInIcon from '../Icon/LinkedInIcon';
+
 export const headerID = 'headerNav';
 
 const getSectionName = (section: string) => {
@@ -34,6 +36,16 @@ const Header: FC = memo(() => {
       <div className="fixed top-5 left-5 z-50 sm:top-7 sm:left-7">
         <a className="font-mono text-xl font-bold tracking-tight text-text-primary transition-colors hover:text-accent" href="#hero">
           <span className="text-accent">&lt;</span>Shivang <span className="text-accent">/&gt;</span>
+        </a>
+      </div>
+      <div className="fixed top-5 right-5 z-50 sm:top-7 sm:right-7 hidden sm:block">
+        <a 
+          className="flex items-center gap-x-2 px-4 py-2 rounded-full bg-[#0A66C2] text-white text-xs font-mono font-bold shadow-glow hover:bg-[#084e96] transition-all duration-300 transform hover:scale-105"
+          href="https://www.linkedin.com/in/shivang-sinha-92755012b/"
+          target="_blank"
+          rel="noopener noreferrer">
+          <LinkedInIcon className="h-4 w-4 fill-current" />
+          <span>LinkedIn</span>
         </a>
       </div>
       <MobileNav currentSection={currentSection} navSections={navSections} />

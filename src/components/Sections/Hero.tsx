@@ -1,4 +1,4 @@
-import {ArrowRightIcon, PlayIcon} from '@heroicons/react/24/outline';
+import {PlayIcon} from '@heroicons/react/24/outline';
 import {motion, Variants} from 'framer-motion';
 import Image from 'next/image';
 import {FC, memo} from 'react';
@@ -85,9 +85,15 @@ const Hero: FC = memo(() => {
             <motion.div className="reference-hero__description" variants={itemVariants}>{description}</motion.div>
             <motion.div className="reference-hero__actions" variants={itemVariants}>
               {cvAction && (
-                <motion.a className="reference-button reference-button--primary" href={cvAction.href} whileHover={{y: -3, scale: 1.02}} whileTap={{scale: 0.97}}>
+                <motion.a 
+                  className="reference-button reference-button--primary bg-[#0A66C2] text-white border-none hover:bg-[#084e96] shadow-glow" 
+                  href={cvAction.href}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  whileHover={{y: -3, scale: 1.05}} 
+                  whileTap={{scale: 0.97}}>
+                  {cvAction.Icon && <cvAction.Icon className="h-4 w-4 fill-current" />}
                   {cvAction.text}
-                  <ArrowRightIcon className="h-4 w-4" />
                 </motion.a>
               )}
               {contactAction && (
@@ -102,6 +108,17 @@ const Hero: FC = memo(() => {
           <motion.div className="reference-hero__portrait relative overflow-hidden rounded-3xl" variants={itemVariants}>
             <div className="absolute inset-0 z-20 pointer-events-none animate-scan-line" />
             
+            {/* Named Inventor badge */}
+            <motion.div 
+              className="absolute top-4 left-4 z-30 flex items-center gap-x-2 px-3 py-1.5 rounded-full bg-black/80 border border-accent/40 shadow-glow backdrop-blur-md"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <span className="text-accent text-sm">⭐</span>
+              <span className="text-xs font-mono font-bold text-text-primary">Named Inventor @ Carl Zeiss</span>
+            </motion.div>
+
             <div className="reference-hero__orb reference-hero__orb--one" />
             <div className="reference-hero__orb reference-hero__orb--two" />
             <div className="reference-hero__arch" />
@@ -119,7 +136,7 @@ const Hero: FC = memo(() => {
               animate={{ scale: [1, 1.02, 1] }} 
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <span className="reference-location-dot animate-pulse" /> Germany
+              <span className="reference-location-dot animate-pulse" /> Germany 🇩🇪
             </motion.div>
           </motion.div>
         </motion.div>

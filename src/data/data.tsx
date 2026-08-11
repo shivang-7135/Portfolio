@@ -1,6 +1,5 @@
 import {
   AcademicCapIcon,
-  ArrowDownTrayIcon,
   CalendarIcon,
   FlagIcon,
   MapIcon,
@@ -13,7 +12,7 @@ import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 import heroImage from '../images/header-background.webp';
-import profilepic from '../images/shivang-portrait.png';
+import profilepic from '../images/shivang-opentowork.png';
 import testimonialImage from '../images/testimonial.webp';
 import {
   About,
@@ -34,8 +33,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Shivang Sinha – AI Full Stack Engineer',
-  description: 'AI Full Stack Engineer with 5+ years delivering production-grade applications end-to-end — Python/FastAPI backends, React/TypeScript frontends, and REST API architectures. Built LLM-powered Copilot at Carl Zeiss. M.Sc. NLP (University of Trier, thesis completed). Currently available for full-time roles.',
+  title: 'Shivang Sinha | AI Automation & Full-Stack Engineer',
+  description: "Portfolio of Shivang Sinha — AI Automation & Full-Stack Engineer specializing in LLM applications, RAG pipelines, agentic workflows, and scalable cloud systems.",
 };
 
 /**
@@ -68,17 +67,17 @@ export const heroData: Hero = {
         <strong className="text-text-primary">LLM- and RAG-powered systems</strong> at Carl Zeiss, Barclays, and Hexagon.{' '}
         M.Sc. in <strong className="text-text-primary">Natural Language Processing</strong> — University of Trier.
       </p>
-      <p className="text-sm text-text-muted sm:text-base font-body mt-2">
-        <strong className="text-accent">Currently available</strong> for full-time roles · Germany
+      <p className="text-sm text-text-muted sm:text-base font-body mt-2 flex items-center gap-x-2 flex-wrap">
+        <strong className="text-accent">Currently available</strong> for full-time roles · Germany 🇩🇪
       </p>
     </>
   ),
   actions: [
     {
-      href: '/ShivangSinhaCVv3.pdf',
-      text: 'Download CV',
+      href: 'https://www.linkedin.com/in/shivang-sinha-92755012b/',
+      text: 'Connect on LinkedIn',
       primary: true,
-      Icon: ArrowDownTrayIcon,
+      Icon: LinkedInIcon,
     },
     {
       href: `#${SectionId.Contact}`,
@@ -95,9 +94,9 @@ export const aboutData: About = {
   profileImageSrc: profilepic,
   description: `AI Full Stack Engineer with 5+ years delivering production-grade applications end-to-end — Python/FastAPI backends, React/TypeScript frontends, and REST API architectures in enterprise-regulated environments. Built an LLM-powered Microscopy Copilot at Carl Zeiss on Azure; previously shipped high-reliability transactional systems at Barclays (99.9% uptime) and industrial platforms at Hexagon (500+ users). Combines deep AI/ML expertise (RAG, multi-agent systems, LLM orchestration) with strong DevSecOps practices across Docker, CI/CD, and Azure. Proven track record leading code reviews, collaborating with vendor teams, and driving AI-assisted development adoption. M.Sc. in NLP (University of Trier, thesis completed).`,
   aboutItems: [
-    {label: 'Location', text: 'Germany', Icon: MapIcon},
+    {label: 'Location / Residence', text: 'Germany 🇩🇪', Icon: MapIcon},
+    {label: 'Nationality', text: 'Indian 🇮🇳', Icon: FlagIcon},
     {label: 'Age', text: '28', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Indian', Icon: FlagIcon},
     {label: 'Interests', text: 'AI, Badminton & Cricket', Icon: SparklesIcon},
     {label: 'Study', text: 'M.Sc. NLP – University of Trier', Icon: AcademicCapIcon},
     {label: 'Availability', text: 'Currently available for full-time roles', Icon: BriefcaseIcon},

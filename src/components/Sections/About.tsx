@@ -11,12 +11,12 @@ const About: FC = memo(() => {
   const codeLines = [
     { type: 'comment', text: '// about.ts' },
     { type: 'code', text: 'const shivang = {' },
-    { type: 'property', key: 'location', value: '"Germany"' },
+    { type: 'property', key: 'residencePermit', value: '"Germany 🇩🇪"' },
+    { type: 'property', key: 'nationality', value: '"Indian 🇮🇳"' },
     { type: 'property', key: 'languages', value: '"English (C1), German (B1)"' },
-    { type: 'property', key: 'nationality', value: '"Indian"' },
     { type: 'property', key: 'interests', value: '"AI, Badminton & Cricket"' },
     { type: 'property', key: 'study', value: '"M.Sc. NLP – University of Trier"' },
-    { type: 'property', key: 'workPermit', value: '"Eligible across Germany & EU"' },
+    { type: 'property', key: 'workPermit', value: '"Eligible across Germany & EU 🇩🇪🇪🇺"' },
     { type: 'property', key: 'status', value: '"Available immediately"' },
     { type: 'code', text: '};' }
   ];
@@ -41,7 +41,7 @@ const About: FC = memo(() => {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <div className="relative h-56 w-56 md:h-64 md:w-64 overflow-hidden rounded-3xl border border-white/10 shadow-card">
+                <div className="relative h-64 w-64 md:h-72 md:w-72 overflow-hidden rounded-3xl border border-white/10 shadow-card">
                   <Image
                     alt="about-me-image"
                     className="h-full w-full object-cover"
@@ -52,10 +52,24 @@ const About: FC = memo(() => {
             )}
 
             {/* Description */}
-            <div className="flex flex-col gap-y-5 flex-1 min-w-0">
+            <div className="flex flex-col gap-y-4 flex-1 min-w-0">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-primary">
                 AI Engineer with Full-Stack Experience
               </h2>
+              
+              {/* Flag Badges */}
+              <div className="flex flex-wrap gap-2.5 my-1">
+                <span className="inline-flex items-center gap-x-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-text-primary">
+                  <span className="text-base">🇩🇪</span> Residence: <strong className="text-accent">Germany</strong>
+                </span>
+                <span className="inline-flex items-center gap-x-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-text-primary">
+                  <span className="text-base">🇮🇳</span> Nationality: <strong className="text-accent">Indian</strong>
+                </span>
+                <span className="inline-flex items-center gap-x-2 px-3 py-1.5 rounded-xl bg-accent/10 border border-accent/20 text-xs font-mono text-accent">
+                  <span>⭐</span> Named Inventor @ Carl Zeiss
+                </span>
+              </div>
+
               <p className="text-text-secondary text-sm md:text-base leading-relaxed font-body">
                 {description}
               </p>
