@@ -1,75 +1,69 @@
 [
   {
-    "title": "Lensr — Intent-Aware Multi-Agent Search Engine",
-    "description": "Built Lensr, an AI search application that routes user queries to specialized agents for shopping, trip planning, price history, captions, and other decision-focused tasks. Developed the app with TanStack Start, LangGraph, and AWS Bedrock to return one structured, opinionated answer instead of traditional search-result links.",
-    "url": "https://lensr-shivang.lovable.app",
+    "title": "Lensr – Intent-Aware AI Search Engine",
+    "description": "Built a full-stack agentic search platform with 10 intents, 20 tailored result cards, and live SSE streaming using LangGraph, FastAPI, AWS Bedrock, React 19, and Supabase.",
+    "url": "https://lensr.studio",
     "image": "/images/portfolio/project-0-1784320790206.png",
     "disable": false,
     "featured": true,
     "metrics": [
       {
         "label": "Agent Types",
-        "value": "6+"
+        "value": "10 intents"
       },
       {
-        "label": "Query Routing",
-        "value": "Intent-aware"
+        "label": "Result Cards",
+        "value": "20 tailored"
       },
       {
-        "label": "Response Format",
-        "value": "Structured"
+        "label": "Streaming",
+        "value": "Live SSE"
       }
     ],
     "techStack": [
-      "TanStack Start",
+      "React 19",
       "LangGraph",
+      "FastAPI",
       "AWS Bedrock",
-      "TypeScript",
-      "Multi-Agent"
+      "Supabase"
     ],
     "outputs": [
       {
         "label": "Arize Phoenix Traces",
         "url": "https://app.phoenix.arize.com/s/shivangsinha2/projects/UHJvamVjdDoz/spans?timeRangeKey=7d",
         "type": "report"
-      },
-      {
-        "label": "Span Details",
-        "url": "https://app.phoenix.arize.com/s/shivangsinha2/projects/UHJvamVjdDoz/spans/b56c27d17ac079cd44f532ca2cb03715?timeRangeKey=7d&selectedSpanNodeId=U3BhbjoyNzgx",
-        "type": "report"
       }
     ],
-    "reportUrl": "https://app.phoenix.arize.com/s/shivangsinha2/projects/UHJvamVjdDoz/spans?timeRangeKey=7d",
-    "demoUrl": "https://lensr-shivang.lovable.app",
+    "demoUrl": "https://lensr.studio",
     "sourceUrl": "https://github.com/shivang-7135"
   },
   {
-    "title": "DailyAI – Personalised AI News App",
-    "description": "A personalised AI news platform delivering curated updates every 60 minutes with optimised read times. Features cross-device sync, personalised feeds powered by NLP-based ranking, and a modern PWA experience. Built with React, Supabase, and intelligent RSS aggregation.",
+    "title": "DailyAI – AI News Intelligence Platform",
+    "description": "Shipped a production AI news app with source-backed summaries and personalization using FastAPI, NiceGUI, and LangGraph agentic pipelines; approx. 300 users, 40% retention.",
     "url": "https://dailyai.site/",
     "image": "/images/portfolio/dailyai.png",
     "disable": false,
     "featured": true,
     "metrics": [
       {
-        "label": "Refresh Cycle",
-        "value": "60 min"
+        "label": "Users",
+        "value": "approx 300"
       },
       {
-        "label": "Cross-Device",
-        "value": "Synced"
+        "label": "Retention",
+        "value": "40%"
       },
       {
-        "label": "Architecture",
-        "value": "PWA"
+        "label": "Pipelines",
+        "value": "Agentic"
       }
     ],
     "techStack": [
-      "React",
-      "Supabase",
-      "NLP",
-      "RSS",
-      "PWA"
+      "FastAPI",
+      "NiceGUI",
+      "LangGraph",
+      "Python",
+      "AI Agents"
     ],
     "demoUrl": "https://dailyai.site/"
   },
@@ -273,5 +267,32 @@
       "spaCy"
     ],
     "sourceUrl": "https://github.com/shivang-7135"
+  },
+  {
+    "title": "Article: How I Built DailyAI With AI Coding Tools",
+    "description": "Published in Towards AI (May 2026), detailing the architecture, prompt engineering, and agentic workflows used to build the DailyAI news platform.",
+    "url": "https://towardsai.net/",
+    "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80&fit=crop",
+    "disable": false,
+    "metrics": [
+      {
+        "label": "Publication",
+        "value": "Towards AI"
+      },
+      {
+        "label": "Date",
+        "value": "May 2026"
+      },
+      {
+        "label": "Topic",
+        "value": "AI Coding Tools"
+      }
+    ],
+    "techStack": [
+      "Technical Writing",
+      "AI Architecture",
+      "Prompt Engineering"
+    ],
+    "demoUrl": "https://towardsai.net/"
   }
 ]

@@ -383,10 +383,10 @@ const TechRadar: FC = memo(() => {
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#2D2D2D] border-b border-r border-white/10 rotate-45"></div>
               </div>
 
-              <div className={`text-text-muted transition-colors duration-300 ${tech.colorClass}`}>
+              <div className={`text-text-muted transition-colors duration-300 mb-2 ${tech.colorClass}`}>
                 {tech.icon}
               </div>
-              <span className="font-heading font-medium text-text-primary text-center opacity-0 group-hover:opacity-0 transition-opacity duration-300 absolute bottom-4">
+              <span className="font-heading text-sm font-medium text-text-primary text-center transition-opacity duration-300">
                 {tech.name}
               </span>
             </motion.div>

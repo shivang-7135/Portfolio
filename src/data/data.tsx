@@ -134,6 +134,9 @@ export const skills: SkillGroup[] = [
       {name: 'Celery', level: 7},
       {name: 'REST API Design', level: 9},
       {name: 'Async Processing', level: 8},
+      {name: 'C# / .NET', level: 7},
+      {name: 'Automated Testing', level: 8},
+      {name: 'Data Modelling', level: 8},
     ],
   },
   {
@@ -153,10 +156,15 @@ export const skills: SkillGroup[] = [
       {name: 'RAG', level: 9},
       {name: 'AI Agents', level: 9},
       {name: 'Agentic Workflows', level: 9},
-      {name: 'Prompt Engineering', level: 9},
+      {name: 'Prompt & Context Engineering', level: 9},
       {name: 'LLM Orchestration', level: 8},
       {name: 'NLP', level: 9},
       {name: 'Fine-tuning', level: 8},
+      {name: 'Structured Outputs', level: 9},
+      {name: 'Tool Use', level: 9},
+      {name: 'Evaluation & Monitoring', level: 8},
+      {name: 'Model Selection', level: 8},
+      {name: 'Hallucination Mitigation', level: 8},
     ],
   },
   {
@@ -170,6 +178,7 @@ export const skills: SkillGroup[] = [
       {name: 'BERT', level: 8},
       {name: 'MCP', level: 8},
       {name: 'Vector Embeddings', level: 8},
+      {name: 'AWS Bedrock', level: 8},
     ],
   },
   {
@@ -180,6 +189,10 @@ export const skills: SkillGroup[] = [
       {name: 'Docker', level: 8},
       {name: 'CI/CD Pipelines', level: 8},
       {name: 'MLOps', level: 7},
+      {name: 'AWS', level: 8},
+      {name: 'Kubernetes', level: 7},
+      {name: 'GitHub Actions', level: 8},
+      {name: 'Observability', level: 7},
     ],
   },
   {
@@ -190,6 +203,7 @@ export const skills: SkillGroup[] = [
       {name: 'MongoDB', level: 7},
       {name: 'FAISS', level: 8},
       {name: 'Chroma', level: 8},
+      {name: 'Supabase', level: 8},
     ],
   },
   {
@@ -244,11 +258,10 @@ export const experience: TimelineItem[] = [
     title: 'Carl Zeiss Microscopy – Generative AI Engineer (Werkstudent)',
     content: (
       <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
-        <li>Designed and deployed an LLM-driven Microscopy Copilot on <strong className="text-text-primary">Azure OpenAI</strong> with <strong className="text-text-primary">LangGraph</strong>, architecting both the FastAPI backend and React frontend, reducing manual R&amp;D workflows by 25–35%</li>
-        <li>Built RAG pipelines with vector databases for intelligent retrieval across documentation and code repositories, improving query accuracy by ~40%</li>
-        <li>Developed multi-agent systems for NL-to-code translation, automating Python and C# script generation with structured validation and integration contracts</li>
-        <li>Shipped production features via MCP-based microservices with CI/CD pipelines and containerized deployments, driving cross-department adoption</li>
-        <li>Conducted code reviews and design sessions with cross-functional teams, ensuring quality, maintainability, and alignment with architectural standards</li>
+        <li>Took an LLM-driven Microscopy Copilot from prototype to production using <strong className="text-text-primary">Azure OpenAI</strong> and <strong className="text-text-primary">LangGraph</strong>, including evaluation frameworks, deployment pipelines, and reliability monitoring—reduced manual effort by 25–35%.</li>
+        <li><strong className="text-text-primary">Named inventor</strong> on a Zeiss AI invention disclosure for an agentic copilot system with human-review escalation points (2025).</li>
+        <li>Designed RAG pipelines with structured outputs and quality evaluation, integrating enterprise documentation and code repositories; improved retrieval accuracy by 40%.</li>
+        <li>Built multi-step agentic workflows with tool-calling via MCP-based interoperability, connecting AI services to internal APIs, data sources, and operational processes across departments.</li>
       </ul>
     ),
   },
@@ -258,11 +271,8 @@ export const experience: TimelineItem[] = [
     title: 'Barclays – Senior Software Developer',
     content: (
       <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
-        <li>Led full-stack development of enterprise web applications for investment banking, ensuring scalability and compliance with regulatory standards</li>
-        <li>Designed and delivered RESTful APIs for high-volume transactional workflows, governing integration contracts between systems and achieving <strong className="text-text-primary">99.9% production reliability</strong></li>
-        <li>Co-built an NLP chatbot with Python backend and API integrations, automating FAQ responses and reducing support tickets by 30%</li>
-        <li>Drove structured code reviews, sprint planning, and secure release processes in Agile Scrum teams of 6–8 engineers, mentoring junior developers</li>
-        <li>Collaborated with external vendor teams, reviewing deliverables and holding implementations to agreed quality standards</li>
+        <li>Led system design of enterprise web applications for investment banking, building scalable RESTful APIs with async processing, automated testing, and delivery pipelines—<strong className="text-text-primary">99.9% uptime</strong>.</li>
+        <li>Developed an internal AI-enabled workflow assistant automating employee support; defined escalation logic for policy dependent decisions, reducing routine tickets by 30%.</li>
       </ul>
     ),
   },
@@ -272,8 +282,7 @@ export const experience: TimelineItem[] = [
     title: 'Hexagon CCI – Software Developer',
     content: (
       <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
-        <li>Launched customer-facing industrial web applications (frontend + backend) for manufacturing clients, serving <strong className="text-text-primary">500+ enterprise users</strong></li>
-        <li>Optimized backend services and REST APIs powering distributed systems, improving response times by 20% through query optimization and caching</li>
+        <li>Delivered production industrial applications serving <strong className="text-text-primary">5,000+ enterprise users</strong>; owned API design, data modelling, observability, and performance optimization (20% latency reduction).</li>
       </ul>
     ),
   },
