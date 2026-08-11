@@ -45,7 +45,7 @@ Testimonials.displayName = 'Testimonials';
 
 const TestimonialCard: FC<{testimonial: Testimonial}> = memo(
   ({testimonial: {text, name, image}}) => (
-    <div className="glass rounded-3xl flex flex-col items-start gap-y-4 p-6 sm:p-8 min-w-[300px] md:min-w-[400px] border-l-4 border-l-accent shrink-0">
+    <div className="glass rounded-3xl flex flex-col items-start gap-y-4 p-6 sm:p-8 w-[320px] md:w-[450px] border-l-4 border-l-accent shrink-0 whitespace-normal">
       <div className="flex w-full items-center gap-x-4 mb-2">
         {image ? (
           <div className="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16">

@@ -105,7 +105,6 @@ const Hero: FC = memo(() => {
             <div className="reference-hero__orb reference-hero__orb--one" />
             <div className="reference-hero__orb reference-hero__orb--two" />
             <div className="reference-hero__arch" />
-            <span className="reference-hero__mark">✱</span>
             <Image
               alt="Shivang Sinha"
               className="reference-hero__image relative z-10"
@@ -120,7 +119,7 @@ const Hero: FC = memo(() => {
               animate={{ scale: [1, 1.02, 1] }} 
               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <span className="reference-location-dot animate-pulse" /> Munich, Germany
+              <span className="reference-location-dot animate-pulse" /> Germany
             </motion.div>
           </motion.div>
         </motion.div>

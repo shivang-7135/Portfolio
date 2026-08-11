@@ -11,7 +11,7 @@ const About: FC = memo(() => {
   const codeLines = [
     { type: 'comment', text: '// about.ts' },
     { type: 'code', text: 'const shivang = {' },
-    { type: 'property', key: 'location', value: '"Munich, Germany"' },
+    { type: 'property', key: 'location', value: '"Germany"' },
     { type: 'property', key: 'languages', value: '"English (C1), German (B1)"' },
     { type: 'property', key: 'nationality', value: '"Indian"' },
     { type: 'property', key: 'interests', value: '"AI, Badminton & Cricket"' },
@@ -54,7 +54,7 @@ const About: FC = memo(() => {
             {/* Description */}
             <div className="flex flex-col gap-y-5 flex-1 min-w-0">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-text-primary">
-                Engineering Intelligence
+                AI Engineer with Full-Stack Experience
               </h2>
               <p className="text-text-secondary text-sm md:text-base leading-relaxed font-body">
                 {description}
@@ -65,19 +65,8 @@ const About: FC = memo(() => {
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="/ShivangSinhaCVv3.pdf"
-                  className="flex items-center gap-x-2 rounded-full bg-accent text-black px-6 py-2.5 text-sm font-semibold font-body shadow-glow"
-                  download>
-                  Download CV
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                </motion.a>
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
                   href="mailto:shivangsinha2@gmail.com"
-                  className="flex items-center gap-x-2 rounded-full bg-white/5 text-text-primary border border-white/15 px-6 py-2.5 text-sm font-semibold font-body hover:border-accent hover:text-accent shadow-card transition-colors">
+                  className="flex items-center gap-x-2 rounded-full bg-accent text-black px-6 py-2.5 text-sm font-semibold font-body shadow-glow hover:bg-accent/90 transition-colors">
                   Email Me
                 </motion.a>
               </div>

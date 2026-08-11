@@ -69,7 +69,7 @@ export const heroData: Hero = {
         M.Sc. in <strong className="text-text-primary">Natural Language Processing</strong> — University of Trier.
       </p>
       <p className="text-sm text-text-muted sm:text-base font-body mt-2">
-        <strong className="text-accent">Currently available</strong> for full-time roles · Munich, Germany
+        <strong className="text-accent">Currently available</strong> for full-time roles · Germany
       </p>
     </>
   ),
@@ -95,7 +95,7 @@ export const aboutData: About = {
   profileImageSrc: profilepic,
   description: `AI Full Stack Engineer with 5+ years delivering production-grade applications end-to-end — Python/FastAPI backends, React/TypeScript frontends, and REST API architectures in enterprise-regulated environments. Built an LLM-powered Microscopy Copilot at Carl Zeiss on Azure; previously shipped high-reliability transactional systems at Barclays (99.9% uptime) and industrial platforms at Hexagon (500+ users). Combines deep AI/ML expertise (RAG, multi-agent systems, LLM orchestration) with strong DevSecOps practices across Docker, CI/CD, and Azure. Proven track record leading code reviews, collaborating with vendor teams, and driving AI-assisted development adoption. M.Sc. in NLP (University of Trier, thesis completed).`,
   aboutItems: [
-    {label: 'Location', text: 'Munich, Germany', Icon: MapIcon},
+    {label: 'Location', text: 'Germany', Icon: MapIcon},
     {label: 'Age', text: '28', Icon: CalendarIcon},
     {label: 'Nationality', text: 'Indian', Icon: FlagIcon},
     {label: 'Interests', text: 'AI, Badminton & Cricket', Icon: SparklesIcon},
@@ -116,7 +116,7 @@ export const currentStatus: CurrentStatus = {
     {label: 'Projects Shipped', value: '9+'},
     {label: 'Degree', value: 'M.Sc. NLP'},
   ],
-  availabilityText: 'Currently available for full-time roles · Munich, Germany',
+  availabilityText: 'Currently available for full-time roles · Germany',
 };
 
 /**
@@ -254,14 +254,19 @@ export const education: TimelineItem[] = [
 export const experience: TimelineItem[] = [
   {
     date: 'November 2024 – April 2026',
-    location: 'Munich, Germany',
+    location: 'Germany',
     title: 'Carl Zeiss Microscopy – Generative AI Engineer (Werkstudent)',
     content: (
-      <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
+      <ul className="list-disc pl-4 space-y-3 text-text-secondary text-sm">
         <li>Took an LLM-driven Microscopy Copilot from prototype to production using <strong className="text-text-primary">Azure OpenAI</strong> and <strong className="text-text-primary">LangGraph</strong>, including evaluation frameworks, deployment pipelines, and reliability monitoring—reduced manual effort by 25–35%.</li>
-        <li><strong className="text-text-primary">Named inventor</strong> on a Zeiss AI invention disclosure for an agentic copilot system with human-review escalation points (2025).</li>
-        <li>Designed RAG pipelines with structured outputs and quality evaluation, integrating enterprise documentation and code repositories; improved retrieval accuracy by 40%.</li>
-        <li>Built multi-step agentic workflows with tool-calling via MCP-based interoperability, connecting AI services to internal APIs, data sources, and operational processes across departments.</li>
+        <li className="mt-3 mb-3">
+          <span className="inline-flex items-center rounded-md bg-accent/10 px-2 py-1 text-xs font-medium text-accent ring-1 ring-inset ring-accent/20 uppercase tracking-wide mr-2 shadow-glow-sm">
+            ⭐ Named Inventor
+          </span>
+          <strong className="text-text-primary">Zeiss AI Invention Disclosure (2025)</strong> for an agentic copilot system with human-review escalation points.
+        </li>
+        <li>Designed <strong className="text-text-primary">RAG pipelines</strong> with structured outputs and quality evaluation, integrating enterprise documentation and code repositories; improved retrieval accuracy by 40%.</li>
+        <li>Built <strong className="text-text-primary">multi-step agentic workflows</strong> with tool-calling via MCP-based interoperability, connecting AI services to internal APIs, data sources, and operational processes across departments.</li>
       </ul>
     ),
   },
@@ -270,9 +275,9 @@ export const experience: TimelineItem[] = [
     location: 'Pune, India',
     title: 'Barclays – Senior Software Developer',
     content: (
-      <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
-        <li>Led system design of enterprise web applications for investment banking, building scalable RESTful APIs with async processing, automated testing, and delivery pipelines—<strong className="text-text-primary">99.9% uptime</strong>.</li>
-        <li>Developed an internal AI-enabled workflow assistant automating employee support; defined escalation logic for policy dependent decisions, reducing routine tickets by 30%.</li>
+      <ul className="list-disc pl-4 space-y-3 text-text-secondary text-sm">
+        <li>Led system design of enterprise web applications for investment banking, building <strong className="text-text-primary">scalable RESTful APIs</strong> with async processing, automated testing, and delivery pipelines—achieving <strong className="text-accent font-bold">99.9% uptime</strong>.</li>
+        <li>Developed an internal <strong className="text-text-primary">AI-enabled workflow assistant</strong> automating employee support; defined escalation logic for policy dependent decisions, reducing routine tickets by 30%.</li>
       </ul>
     ),
   },
@@ -281,8 +286,8 @@ export const experience: TimelineItem[] = [
     location: 'Hyderabad, India',
     title: 'Hexagon CCI – Software Developer',
     content: (
-      <ul className="list-disc pl-4 space-y-1 text-text-secondary text-sm">
-        <li>Delivered production industrial applications serving <strong className="text-text-primary">5,000+ enterprise users</strong>; owned API design, data modelling, observability, and performance optimization (20% latency reduction).</li>
+      <ul className="list-disc pl-4 space-y-3 text-text-secondary text-sm">
+        <li>Delivered production industrial applications serving <strong className="text-accent font-bold">5,000+ enterprise users</strong>; owned API design, data modelling, observability, and performance optimization (20% latency reduction).</li>
       </ul>
     ),
   },
@@ -346,7 +351,7 @@ export const contact: ContactSection = {
     },
     {
       type: ContactType.Location,
-      text: 'Munich, Germany',
+      text: 'Germany',
       href: 'https://maps.app.goo.gl/WSg46QLjcow4yzuY7',
     },
     {

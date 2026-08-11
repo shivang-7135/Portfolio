@@ -58,7 +58,7 @@ const Contact: FC = memo(() => {
                         </div>
                         <div className="flex flex-col items-center">
                           <span className="text-xs text-text-muted font-mono uppercase tracking-wider mb-2">{srLabel}</span>
-                          <p className="text-sm md:text-base font-medium text-text-primary font-body break-all">{text}</p>
+                          <p className="text-sm md:text-base font-medium text-text-primary font-body break-words">{text}</p>
                         </div>
                       </motion.a>
                     </dd>
