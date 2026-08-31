@@ -135,9 +135,9 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
         )}
         
         {/* Dark Overlay that appears on Hover */}
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20 overflow-hidden">
+        <div className="portfolio-actions-overlay pointer-events-none absolute inset-0 z-20 flex items-center justify-center overflow-hidden bg-black/60 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
           {/* Action Buttons Overlay sliding up */}
-          <div className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 flex flex-wrap justify-center gap-3 p-4">
+          <div className="portfolio-actions flex translate-y-8 flex-wrap justify-center gap-3 p-4 transition-transform duration-500 group-hover:translate-y-0">
             {demoUrl && (
               <a 
                 href={demoUrl} 
