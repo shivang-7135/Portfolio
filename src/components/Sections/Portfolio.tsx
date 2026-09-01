@@ -46,7 +46,7 @@ const Portfolio: FC = memo(() => {
 });
 
 const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, index}) => {
-  const {title, description, image, featured, metrics, techStack, demoUrl, reportUrl, sourceUrl} = item;
+  const {title, description, image, featured, metrics, techStack, url, demoUrl, reportUrl, sourceUrl} = item;
   
   // 3D Tilt Effect Logic
   const x = useMotionValue(0);
@@ -223,6 +223,16 @@ const PortfolioCard: FC<{item: PortfolioItem, index: number}> = memo(({item, ind
             ))}
           </div>
         )}
+
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 rounded-full bg-accent px-5 py-2 text-sm font-semibold text-black transition-colors duration-300 hover:bg-accent-hover"
+        >
+          View Project
+          <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+        </a>
 
         <div className="flex-grow" />
       </div>

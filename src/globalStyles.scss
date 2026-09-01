@@ -130,21 +130,6 @@ th {
   .custom-cursor--ring {
     display: none !important;
   }
-
-  /* Touch devices do not have a hover state, so keep project actions visible
-     and comfortably tappable instead of hiding them behind the image overlay. */
-  .portfolio-actions-overlay {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .portfolio-actions {
-    transform: translateY(0);
-  }
-
-  .portfolio-actions-overlay a {
-    min-height: 44px;
-  }
 }
 
 /* ─── Subtle ambient background ─── */
