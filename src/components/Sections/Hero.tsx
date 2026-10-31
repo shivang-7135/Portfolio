@@ -3,8 +3,8 @@ import {motion, Variants} from 'framer-motion';
 import Image from 'next/image';
 import {FC, memo} from 'react';
 
-import heroPortrait from '../../images/shivang-portrait.png';
 import {heroData, SectionId} from '../../data/data';
+import heroPortrait from '../../images/shivang-portrait.png';
 import Section from '../Layout/Section';
 
 const containerVariants: Variants = {
@@ -70,6 +70,57 @@ const Hero: FC = memo(() => {
         </motion.div>
 
         <motion.div animate="show" className="reference-hero__inner relative z-10" initial="hidden" variants={containerVariants}>
+          <div className="reference-hero__visuals">
+            <motion.div className="reference-hero__video relative overflow-hidden rounded-3xl" variants={itemVariants}>
+              <video
+                aria-hidden="true"
+                autoPlay
+                className="reference-hero__video-media"
+                loop
+                muted
+                playsInline
+                preload="auto"
+                src="/PortfolioVideo.mp4"
+              />
+              <div className="reference-hero__video-overlay" />
+            </motion.div>
+
+            <motion.div className="reference-hero__portrait relative overflow-hidden rounded-3xl" variants={itemVariants}>
+              <div className="absolute inset-0 z-20 pointer-events-none animate-scan-line" />
+              
+              {/* Named Inventor badge */}
+              <motion.div 
+                className="absolute top-4 left-4 z-30 flex items-center gap-x-2 px-3 py-1.5 rounded-full bg-black/80 border border-accent/40 shadow-glow backdrop-blur-md"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                <span className="text-accent text-sm">⭐</span>
+                <span className="text-xs font-mono font-bold text-text-primary">Named Inventor @ Carl Zeiss</span>
+              </motion.div>
+
+              <div className="reference-hero__orb reference-hero__orb--one" />
+              <div className="reference-hero__orb reference-hero__orb--two" />
+              <div className="reference-hero__arch" />
+              <Image
+                alt="Shivang Sinha"
+                className="reference-hero__image relative z-10"
+                height={780}
+                priority
+                sizes="(min-width: 1024px) 45vw, 88vw"
+                src={heroPortrait}
+                width={620}
+              />
+              <motion.div 
+                className="reference-hero__location relative z-30" 
+                animate={{ scale: [1, 1.02, 1] }} 
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <span className="reference-location-dot animate-pulse" /> Germany 🇩🇪
+              </motion.div>
+            </motion.div>
+          </div>
+
           <div className="reference-hero__copy">
             <motion.div className="reference-eyebrow font-mono" variants={itemVariants}>
               <span className="text-accent font-bold mr-2">&gt;</span>
@@ -105,41 +156,6 @@ const Hero: FC = memo(() => {
               )}
             </motion.div>
           </div>
-
-          <motion.div className="reference-hero__portrait relative overflow-hidden rounded-3xl" variants={itemVariants}>
-            <div className="absolute inset-0 z-20 pointer-events-none animate-scan-line" />
-            
-            {/* Named Inventor badge */}
-            <motion.div 
-              className="absolute top-4 left-4 z-30 flex items-center gap-x-2 px-3 py-1.5 rounded-full bg-black/80 border border-accent/40 shadow-glow backdrop-blur-md"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 }}
-            >
-              <span className="text-accent text-sm">⭐</span>
-              <span className="text-xs font-mono font-bold text-text-primary">Named Inventor @ Carl Zeiss</span>
-            </motion.div>
-
-            <div className="reference-hero__orb reference-hero__orb--one" />
-            <div className="reference-hero__orb reference-hero__orb--two" />
-            <div className="reference-hero__arch" />
-            <Image
-              alt="Shivang Sinha"
-              className="reference-hero__image relative z-10"
-              height={780}
-              priority
-              sizes="(min-width: 1024px) 45vw, 88vw"
-              src={heroPortrait}
-              width={620}
-            />
-            <motion.div 
-              className="reference-hero__location relative z-30" 
-              animate={{ scale: [1, 1.02, 1] }} 
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <span className="reference-location-dot animate-pulse" /> Germany 🇩🇪
-            </motion.div>
-          </motion.div>
         </motion.div>
       </div>
     </Section>
